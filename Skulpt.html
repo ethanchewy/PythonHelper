@@ -1,0 +1,755 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0023)http://www.skulpt.org/# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Skulpt</title>
+    <link rel="stylesheet" type="text/css" media="all" href="./Skulpt_files/codemirror.css">
+    <link rel="stylesheet" type="text/css" media="all" href="./Skulpt_files/solarized.css">
+    <link rel="stylesheet" type="text/css" media="all" href="./Skulpt_files/main.css">
+    <script type="text/javascript" src="./Skulpt_files/jquery.min.js"></script>
+    <script src="./Skulpt_files/codemirrorepl.js" type="text/javascript"></script>
+    <script src="./Skulpt_files/repl.js" type="text/javascript"></script>
+    <script src="./Skulpt_files/python.js" type="text/javascript"></script>
+    <script src="./Skulpt_files/beautify.js" type="text/javascript"></script>
+    <script src="./Skulpt_files/skulpt.min.js" type="text/javascript"></script>
+    <script src="./Skulpt_files/debugger.js" type="text/javascript"></script>
+    <script src="./Skulpt_files/skulpt-stdlib.js" type="text/javascript"></script>
+    <script src="./Skulpt_files/editor.js" type="text/javascript"></script>
+    <script src="./Skulpt_files/debugger_cm.js" type="text/javascript"></script>
+</head>
+<body>
+
+
+<a href="https://github.com/skulpt/skulpt"><img style="position: absolute; top: 0; left: 0; border: 0;" src="./Skulpt_files/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+<div class="page">
+<div class="body">
+<div class="main">
+    <img src="./Skulpt_files/logo.png" alt="Skulpt" id="logo">
+
+    <h2>Python. Client side.</h2>
+
+    <p>Skulpt is an <em>entirely in-browser</em> implementation of Python.</p>
+
+    <p>No preprocessing, plugins, or server-side support required, just write
+        Python and reload.</p>
+
+    <h2>Demo</h2>
+
+    <p>The code is run entirely in your browser, so don't feel
+        obligated to "crash the server", you'll only stub your
+        toe. <a id="toggledocs" href="http://www.skulpt.org/#">Help</a>, or examples:
+        <a href="http://www.skulpt.org/#" id="codeexample1">1</a>
+        <a href="http://www.skulpt.org/#" id="codeexample2">2</a>
+        <a href="http://www.skulpt.org/#" id="codeexample3">3</a>
+        <a href="http://www.skulpt.org/#" id="codeexample4">4</a>
+        <a href="http://www.skulpt.org/#" id="codeexample5">5</a>
+        <a href="http://www.skulpt.org/#" id="codeexample6">6</a>
+        <a href="http://www.skulpt.org/#" id="codeexample7">7</a>
+        <a href="http://www.skulpt.org/#" id="codeexample8">8</a>.
+        Ctrl-Enter to run.
+    </p>
+
+    <div id="quickdocs" style="display: none">
+        <ul>
+            <li>cut/copy/paste/undo/redo with the usual shortcut keys</li>
+            <li>Tab does decent indenting.
+                Thanks to <a href="http://codemirror.net/" target="_blank">CodeMirror</a> for the text editor.
+            </li>
+            <li>Ctrl-Enter to run, Shift-Enter to run selected</li>
+            <!--
+            <li>F9 to toggle breakpoints</li>
+            <li>F10 to step over</li>
+            <li>F11 to step in</li>
+            <li>Shift-F11 to step out.</li>
+            <li>You can inspect values with e.g. 'print foo' in the
+            &quot;Interactive&quot; box. When debugging, this will
+            execute in the debug context.</li>
+            -->
+        </ul>
+    </div>
+
+
+    <p></p>
+
+    <textarea id="code" cols="85" rows="25" style="display: none;">import turtle
+
+t = turtle.Turtle()
+
+for c in ['red', 'green', 'yellow', 'blue']:
+    t.color(c)
+    t.forward(75)
+    t.left(90)
+    </textarea><div class="CodeMirror cm-s-solarized cm-s-dark"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 378.094px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 31px; min-height: 18px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar" style="min-width: 18px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 31px; min-width: 350.094px; min-height: 26px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div style="width: 50px; height: 50px; overflow-x: scroll;"></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style=""><div class="CodeMirror-cursor" style="left: 347.094px; top: 0px; height: 18px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">1</div></div><pre><span style="padding-right: 0.1px;"><span class="cm-keyword">print</span> [<span class="cm-variable">x</span><span class="cm-operator">*</span><span class="cm-variable">x</span> <span class="cm-keyword">for</span> <span class="cm-variable">x</span> <span class="cm-operator">in</span> <span class="cm-builtin">range</span>(<span class="cm-number">20</span>) <span class="cm-keyword">if</span> <span class="cm-variable">x</span> <span class="cm-operator">%</span> <span class="cm-number">4</span> <span class="cm-operator">==</span> <span class="cm-number">0</span>]</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 26px;"></div><div class="CodeMirror-gutters" style="height: 300px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 30px;"></div></div></div></div>
+    <textarea id="debugger_cm" ,="" cols="85" rows="1" style="display: none;"></textarea><div class="CodeMirror cm-s-solarized cm-s-light CodeMirror-wrap" style="width: 100%; height: 280px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 76px; left: 35px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 31px; min-height: 18px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar" style="min-width: 18px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 31px; min-height: 98px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div style="width: 50px; height: 50px; overflow-x: scroll;"></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 4px; top: 72px; height: 18px;">&nbsp;</div></div><div class="CodeMirror-code"><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-variable">Skulpt</span> <span class="cm-variable">Debugger</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-operator">-----------------------------------</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-builtin">type</span> <span class="cm-string">'help'</span> <span class="cm-keyword">for</span> <span class="cm-variable">looking</span> <span class="cm-variable">at</span> <span class="cm-variable">commands</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-operator">-----------------------------------</span></span></pre><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -31px;"><div class="CodeMirror-gutter-elt" style="left: 0px; width: 30px;">&gt;&gt;&gt;</div></div><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 98px;"></div><div class="CodeMirror-gutters" style="height: 280px;"><div class="CodeMirror-gutter note-gutter"></div></div></div></div>
+    <button id="skulpt_run">Run</button>
+    <button id="skulpt_js_output" onclick="var cm = $(&#39;.CodeMirror&#39;)[2].CodeMirror;$(cm.getWrapperElement()).toggle()">Hide/Unhide JS</button>
+    <textarea id="codeoutput" style="display: none;"></textarea><div class="CodeMirror cm-s-solarized cm-s-dark"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 35px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 31px; min-height: 18px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar" style="min-width: 18px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 31px; min-width: 7px; min-height: 26px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div style="width: 50px; height: 50px; overflow-x: scroll;"></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 18px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">1</div></div><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 26px;"></div><div class="CodeMirror-gutters" style="height: 300px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 30px;"></div></div></div></div>
+
+    <p>Output: (<a href="http://www.skulpt.org/#" id="clearoutput">clear</a>)</p>
+    <pre id="edoutput">[0, 16, 64, 144, 256]
+</pre>
+
+    <div id="mycanvas" height="400" width="400" style="border-style: solid;"></div>
+
+    <h2>Interactive:</h2>
+    <p>This is a very cool new feature that is just getting off the ground.  This would be a great project to jump in and help out on!</p>
+
+    <textarea id="interactive" cols="85" rows="1" style="display: none;"></textarea><div class="CodeMirror cm-s-solarized cm-s-dark CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 75.5px; left: 66px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 31px; min-height: 18px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar" style="min-width: 18px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 31px; min-height: 116px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div style="width: 50px; height: 50px; overflow-x: scroll;"></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 35px; top: 71.5px; height: 18.5px;">&nbsp;</div></div><div class="CodeMirror-code"><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">Python</span> <span class="cm-number">2.6</span>(<span class="cm-variable">ish</span>) (<span class="cm-variable">skulpt</span>, <span class="cm-variable">Sun</span> <span class="cm-variable">Jul</span> <span class="cm-number">17</span> <span class="cm-number">2016</span> <span class="cm-number">19</span>:<span class="cm-error">0</span><span class="cm-number">6</span>:<span class="cm-number">10</span> <span class="cm-variable">GMT</span><span class="cm-operator">-</span><span class="cm-error">0</span><span class="cm-number">400</span> (<span class="cm-variable">EDT</span>))</span></pre><pre class=""><span style="padding-right: 0.1px;">[<span class="cm-variable">Mozilla</span><span class="cm-operator">/</span><span class="cm-number">5.0</span> (<span class="cm-variable">Macintosh</span>; <span class="cm-variable">Intel</span> <span class="cm-variable">Mac</span> <span class="cm-variable">OS</span> <span class="cm-variable">X</span> <span class="cm-number">10</span><span class="cm-variable">_11_5</span>) <span class="cm-variable">AppleWebKit</span><span class="cm-operator">/</span><span class="cm-number">537.36</span> (<span class="cm-variable">KHTML</span>, <span class="cm-variable">like</span> <span class="cm-variable">Gecko</span>) <span class="cm-variable">Chrome</span><span class="cm-operator">/</span><span class="cm-number">51.0.2704.103</span> <span class="cm-variable">Safari</span><span class="cm-operator">/</span><span class="cm-number">537.36</span>] <span class="cm-variable">on</span> <span class="cm-variable">MacIntel</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">Don</span><span class="cm-string">'t type "help", "copyright", "credits" or "license" unless you'</span><span class="cm-variable">ve</span> <span class="cm-variable">assigned</span> <span class="cm-variable">something</span> <span class="cm-variable">to</span> <span class="cm-variable">them</span></span></pre><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -31px;"><div class="CodeMirror-gutter-elt" style="left: 0px; width: 30px;">&gt;&gt;&gt;</div></div><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 116px;"></div><div class="CodeMirror-gutters" style="height: 300px;"><div class="CodeMirror-gutter note-gutter"></div></div></div></div>
+
+
+    <h2>Your Very Own Copy</h2>
+
+    <p>Want to give it a shot? Grab it with git:</p>
+    <pre>        git clone https://github.com/skulpt/skulpt.git
+    </pre>
+    <p>
+        Or download it like this: <a href="http://www.skulpt.org/static/dist/skulpt-latest.tar.gz">skulpt-latest.tar.gz</a> or like this: <a href="http://www.skulpt.org/static/dist/skulpt-latest.zip">skulpt-latest.zip</a>
+    </p>
+
+
+    <h2>What's New?</h2>
+    <p>
+        </p><ul>
+            <li>Suspensions!  This may not mean a lot to you, but trust me its going to be big.  Suspensions provide the foundation for the asynchronous execution we need to build an interactive debugger, a smoother turtle module, enhanced urllib and other cool features.  For developers you should check out the time module and the suspensions.txt file under doc/.</li>
+            <li>Stub implementations of the standard library modules. You will now get an unimplemented exceptions rather than some other file not found error.</li>
+            <li>General cleanup and standardization of the code.  See the short description of the coding standards in the CONTRIBUTING file</li>
+            <li>Loads of bugfixes: <a href="https://github.com/skulpt/skulpt/compare/0.9.2...0.9.4">see</a></li>
+            <li><span style="font-family: &quot;Consolas&quot;,&quot;Lucida Console&quot;,&quot;Monaco&quot;,monospace;">slice()</span> function implemented. And improvements to list slicing.</li>
+            <li><span style="font-family: &quot;Consolas&quot;,&quot;Lucida Console&quot;,&quot;Monaco&quot;,monospace;">string</span> and <span style="font-family: &quot;Consolas&quot;,&quot;Lucida Console&quot;,&quot;Monaco&quot;,monospace;">operator</span> module added.</li>
+            <li>Keyword arguments for <span style="font-family: &quot;Consolas&quot;,&quot;Lucida Console&quot;,&quot;Monaco&quot;,monospace;">sorted()</span></li>
+            <li><span style="font-family: &quot;Consolas&quot;,&quot;Lucida Console&quot;,&quot;Monaco&quot;,monospace;">text()</span> function in processing</li>
+        </ul>
+
+        <p>By these awesome people:
+            <a href="https://github.com/bnmnetp">Brad Miller</a>,
+            <a href="https://github.com/rixner">Scott Rixner</a>,
+            <a href="https://github.com/albertjan">Albert-Jan Nijburg</a>,
+            <a href="https://github.com/mchat">Marie Chatfield</a>,
+            <a href="https://github.com/isaacdontjelindell">Isaac Dontje Lindell</a>,
+            <a href="https://github.com/jaspervdg">jaspervdg</a>,
+            <a href="https://github.com/Lalaland">Ethan Steinberg</a>,
+            <a href="https://github.com/Jeff-Tian">Jeff-Tian</a>,
+            <a href="https://github.com/meredydd">Meredydd Luff</a> and
+            <a href="https://github.com/LeszekSwirski">Leszek Swirski</a>
+        </p>
+    <p></p>
+
+    <h2>Skulpt in the Wild</h2>
+    <p>
+        </p><ul>
+            <li><a href="http://interactivepython.org/courselib/static/thinkcspy/index.html"> How to Think like a Computer
+                Scientist: Interactive Edition</a></li>
+            <li><a href="http://interactivepython.org/courselib/static/pythonds/index.html"> Problem Solving with Algorithms
+                and Data Structures using Python</a></li>
+            <li><a href="http://www.pythonlearn.com/">PythonLearn</a></li>
+            <li><a href="https://online.dr-chuck.com/">Dr. Chuck Online</a></li>
+            <li><a href="http://www.codeskulptor.org/">CodeSkulptor</a></li>
+            <li><a href="https://trinket.io/">trinket</a></li>
+            <li><a href="http://www.geometryzen.org/">Geometry Zen</a></li>
+            <li><a href="http://www.evaluzio.net/">Evaluzio</a></li>
+        </ul>
+    <p></p>
+    <p>If you have a project that uses skulpt and would like me to link to it here, let me know on our github page.</p>
+
+    <h2>Skulpt on <a href="http://www.coursera.org/">Coursera</a></h2>
+    <p>
+        </p><ul>
+            <li><a href="https://www.coursera.org/course/interactivepython">An Introduction to Interactive Programming in Python</a></li>
+            <li><a href="https://www.coursera.org/course/pythonlearn">Programming for Everybody</a></li>
+        </ul>
+    <p></p>
+
+    <h2>Getting Started</h2>
+
+    <p>If you want to embed a nice looking bit of code that your users can edit, Trinket.io can
+    help you with that!  You can put together the example on their site, and then generate the
+    code for an iframe that you can embed in your page!</p>
+
+    <iframe src="./Skulpt_files/538012d3a6554c7945027aab.html" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen=""> </iframe>
+
+
+    <p>If you want to roll your own page, Getting started with skulpt on your own page can seem a little intimidating, but here's a really simple example that
+    gets you going. You can copy and paste or grab the code from <a href="https://gist.github.com/4650616">this gist</a>.</p>
+
+    <script src="./Skulpt_files/4650616.js"></script><link rel="stylesheet" href="./Skulpt_files/gist-embed-2f0c18bbf9db8afe105a9b5045800d52ba7ce16d394e711a8ed05ca5112bb486.css"><div id="gist4650616" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-simpleskulpt-html" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-html">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-simpleskulpt-html-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-simpleskulpt-html-LC1" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">html</span>&gt; </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-simpleskulpt-html-LC2" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">head</span>&gt; </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-simpleskulpt-html-LC3" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt; </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-simpleskulpt-html-LC4" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.skulpt.org/static/skulpt.min.js<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt; </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-simpleskulpt-html-LC5" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.skulpt.org/static/skulpt-stdlib.js<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt; </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-simpleskulpt-html-LC6" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-simpleskulpt-html-LC7" class="blob-code blob-code-inner js-file-line">&lt;/<span class="pl-ent">head</span>&gt; </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-simpleskulpt-html-LC8" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-simpleskulpt-html-LC9" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">body</span>&gt; </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-simpleskulpt-html-LC10" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-simpleskulpt-html-LC11" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt; </span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-simpleskulpt-html-LC12" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"><span class="pl-c">// output functions are configurable.  This one just appends some text</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-simpleskulpt-html-LC13" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"><span class="pl-c">// to a pre element.</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-simpleskulpt-html-LC14" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"><span class="pl-k">function</span> <span class="pl-en">outf</span>(<span class="pl-smi">text</span>) { </span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-simpleskulpt-html-LC15" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    <span class="pl-k">var</span> mypre <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">"</span>output<span class="pl-pds">"</span></span>); </span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-simpleskulpt-html-LC16" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    <span class="pl-smi">mypre</span>.<span class="pl-smi">innerHTML</span> <span class="pl-k">=</span> <span class="pl-smi">mypre</span>.<span class="pl-smi">innerHTML</span> <span class="pl-k">+</span> text; </span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-simpleskulpt-html-LC17" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">} </span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-simpleskulpt-html-LC18" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"><span class="pl-k">function</span> <span class="pl-en">builtinRead</span>(<span class="pl-smi">x</span>) {</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-simpleskulpt-html-LC19" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    <span class="pl-k">if</span> (<span class="pl-smi">Sk</span>.<span class="pl-smi">builtinFiles</span> <span class="pl-k">===</span> <span class="pl-c1">undefined</span> <span class="pl-k">||</span> <span class="pl-smi">Sk</span>.<span class="pl-smi">builtinFiles</span>[<span class="pl-s"><span class="pl-pds">"</span>files<span class="pl-pds">"</span></span>][x] <span class="pl-k">===</span> <span class="pl-c1">undefined</span>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-simpleskulpt-html-LC20" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">            <span class="pl-k">throw</span> <span class="pl-s"><span class="pl-pds">"</span>File not found: '<span class="pl-pds">"</span></span> <span class="pl-k">+</span> x <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>'<span class="pl-pds">"</span></span>;</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-simpleskulpt-html-LC21" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    <span class="pl-k">return</span> <span class="pl-smi">Sk</span>.<span class="pl-smi">builtinFiles</span>[<span class="pl-s"><span class="pl-pds">"</span>files<span class="pl-pds">"</span></span>][x];</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-simpleskulpt-html-LC22" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">}</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-simpleskulpt-html-LC23" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"></span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-simpleskulpt-html-LC24" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"><span class="pl-c">// Here's everything you need to run a python program in skulpt</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-simpleskulpt-html-LC25" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"><span class="pl-c">// grab the code from your textarea</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-simpleskulpt-html-LC26" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"><span class="pl-c">// get a reference to your pre element for output</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-simpleskulpt-html-LC27" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"><span class="pl-c">// configure the output function</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-simpleskulpt-html-LC28" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"><span class="pl-c">// call Sk.importMainWithBody()</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-simpleskulpt-html-LC29" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"><span class="pl-k">function</span> <span class="pl-en">runit</span>() { </span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-simpleskulpt-html-LC30" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">   <span class="pl-k">var</span> prog <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">"</span>yourcode<span class="pl-pds">"</span></span>).<span class="pl-c1">value</span>; </span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-simpleskulpt-html-LC31" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">   <span class="pl-k">var</span> mypre <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">"</span>output<span class="pl-pds">"</span></span>); </span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-simpleskulpt-html-LC32" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">   <span class="pl-smi">mypre</span>.<span class="pl-smi">innerHTML</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>; </span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-simpleskulpt-html-LC33" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">   <span class="pl-smi">Sk</span>.<span class="pl-smi">pre</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>output<span class="pl-pds">"</span></span>;</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-simpleskulpt-html-LC34" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">   <span class="pl-smi">Sk</span>.<span class="pl-en">configure</span>({output<span class="pl-k">:</span>outf, read<span class="pl-k">:</span>builtinRead}); </span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="file-simpleskulpt-html-LC35" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">   (<span class="pl-smi">Sk</span>.<span class="pl-smi">TurtleGraphics</span> <span class="pl-k">||</span> (<span class="pl-smi">Sk</span>.<span class="pl-smi">TurtleGraphics</span> <span class="pl-k">=</span> {})).<span class="pl-c1">target</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>mycanvas<span class="pl-pds">'</span></span>;</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="file-simpleskulpt-html-LC36" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">   <span class="pl-k">var</span> myPromise <span class="pl-k">=</span> <span class="pl-smi">Sk</span>.<span class="pl-smi">misceval</span>.<span class="pl-en">asyncToPromise</span>(<span class="pl-k">function</span>() {</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="file-simpleskulpt-html-LC37" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">       <span class="pl-k">return</span> <span class="pl-smi">Sk</span>.<span class="pl-en">importMainWithBody</span>(<span class="pl-s"><span class="pl-pds">"</span>&lt;stdin&gt;<span class="pl-pds">"</span></span>, <span class="pl-c1">false</span>, prog, <span class="pl-c1">true</span>);</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L38" class="blob-num js-line-number" data-line-number="38"></td>
+        <td id="file-simpleskulpt-html-LC38" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">   });</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L39" class="blob-num js-line-number" data-line-number="39"></td>
+        <td id="file-simpleskulpt-html-LC39" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">   <span class="pl-smi">myPromise</span>.<span class="pl-en">then</span>(<span class="pl-k">function</span>(<span class="pl-smi">mod</span>) {</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L40" class="blob-num js-line-number" data-line-number="40"></td>
+        <td id="file-simpleskulpt-html-LC40" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">       <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>success<span class="pl-pds">'</span></span>);</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L41" class="blob-num js-line-number" data-line-number="41"></td>
+        <td id="file-simpleskulpt-html-LC41" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">   },</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L42" class="blob-num js-line-number" data-line-number="42"></td>
+        <td id="file-simpleskulpt-html-LC42" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">       <span class="pl-k">function</span>(<span class="pl-smi">err</span>) {</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L43" class="blob-num js-line-number" data-line-number="43"></td>
+        <td id="file-simpleskulpt-html-LC43" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">       <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-smi">err</span>.<span class="pl-c1">toString</span>());</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L44" class="blob-num js-line-number" data-line-number="44"></td>
+        <td id="file-simpleskulpt-html-LC44" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">   });</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L45" class="blob-num js-line-number" data-line-number="45"></td>
+        <td id="file-simpleskulpt-html-LC45" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">} </span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L46" class="blob-num js-line-number" data-line-number="46"></td>
+        <td id="file-simpleskulpt-html-LC46" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt; </span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L47" class="blob-num js-line-number" data-line-number="47"></td>
+        <td id="file-simpleskulpt-html-LC47" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L48" class="blob-num js-line-number" data-line-number="48"></td>
+        <td id="file-simpleskulpt-html-LC48" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">h3</span>&gt;Try This&lt;/<span class="pl-ent">h3</span>&gt; </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L49" class="blob-num js-line-number" data-line-number="49"></td>
+        <td id="file-simpleskulpt-html-LC49" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">form</span>&gt; </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L50" class="blob-num js-line-number" data-line-number="50"></td>
+        <td id="file-simpleskulpt-html-LC50" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">textarea</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>yourcode<span class="pl-pds">"</span></span> <span class="pl-e">cols</span>=<span class="pl-s"><span class="pl-pds">"</span>40<span class="pl-pds">"</span></span> <span class="pl-e">rows</span>=<span class="pl-s"><span class="pl-pds">"</span>10<span class="pl-pds">"</span></span>&gt;import turtle</td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L51" class="blob-num js-line-number" data-line-number="51"></td>
+        <td id="file-simpleskulpt-html-LC51" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L52" class="blob-num js-line-number" data-line-number="52"></td>
+        <td id="file-simpleskulpt-html-LC52" class="blob-code blob-code-inner js-file-line">t = turtle.Turtle()</td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L53" class="blob-num js-line-number" data-line-number="53"></td>
+        <td id="file-simpleskulpt-html-LC53" class="blob-code blob-code-inner js-file-line">t.forward(100)</td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L54" class="blob-num js-line-number" data-line-number="54"></td>
+        <td id="file-simpleskulpt-html-LC54" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L55" class="blob-num js-line-number" data-line-number="55"></td>
+        <td id="file-simpleskulpt-html-LC55" class="blob-code blob-code-inner js-file-line">print "Hello World" </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L56" class="blob-num js-line-number" data-line-number="56"></td>
+        <td id="file-simpleskulpt-html-LC56" class="blob-code blob-code-inner js-file-line">&lt;/<span class="pl-ent">textarea</span>&gt;&lt;<span class="pl-ent">br</span> /&gt; </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L57" class="blob-num js-line-number" data-line-number="57"></td>
+        <td id="file-simpleskulpt-html-LC57" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">button</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>button<span class="pl-pds">"</span></span> <span class="pl-e">onclick</span>=<span class="pl-s"><span class="pl-pds">"</span>runit()<span class="pl-pds">"</span></span>&gt;Run&lt;/<span class="pl-ent">button</span>&gt; </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L58" class="blob-num js-line-number" data-line-number="58"></td>
+        <td id="file-simpleskulpt-html-LC58" class="blob-code blob-code-inner js-file-line">&lt;/<span class="pl-ent">form</span>&gt; </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L59" class="blob-num js-line-number" data-line-number="59"></td>
+        <td id="file-simpleskulpt-html-LC59" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">pre</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>output<span class="pl-pds">"</span></span> &gt;&lt;/<span class="pl-ent">pre</span>&gt; </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L60" class="blob-num js-line-number" data-line-number="60"></td>
+        <td id="file-simpleskulpt-html-LC60" class="blob-code blob-code-inner js-file-line"><span class="pl-c">&lt;!-- If you want turtle graphics include a canvas --&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L61" class="blob-num js-line-number" data-line-number="61"></td>
+        <td id="file-simpleskulpt-html-LC61" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>mycanvas<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt; </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L62" class="blob-num js-line-number" data-line-number="62"></td>
+        <td id="file-simpleskulpt-html-LC62" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L63" class="blob-num js-line-number" data-line-number="63"></td>
+        <td id="file-simpleskulpt-html-LC63" class="blob-code blob-code-inner js-file-line">&lt;/<span class="pl-ent">body</span>&gt; </td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L64" class="blob-num js-line-number" data-line-number="64"></td>
+        <td id="file-simpleskulpt-html-LC64" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-simpleskulpt-html-L65" class="blob-num js-line-number" data-line-number="65"></td>
+        <td id="file-simpleskulpt-html-LC65" class="blob-code blob-code-inner js-file-line">&lt;/<span class="pl-ent">html</span>&gt; </td>
+      </tr>
+</tbody></table>
+
+  </div>
+
+  </div>
+  
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/bnmnetp/4650616/raw/cea29122971db097c9ccb9fdfccd3c0c9bf81edf/simpleskulpt.html" style="float:right">view raw</a>
+        <a href="https://gist.github.com/bnmnetp/4650616#file-simpleskulpt-html">simpleskulpt.html</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+
+    <h2>Helping out!</h2>
+
+    <p>Skulpt surely isn't done yet.</p>
+
+    <p>If you want to check out a list of bugs, or add to it, or see what's been
+        fixed recently, you can head over to the always-euphemistic-sounding <a href="http://github.com/skulpt/skulpt/issues">issues page</a>.</p>
+
+    <p>If you are interested in contributing to skulpt in any way, check out this new <a href="https://github.com/skulpt/skulpt/blob/master/CONTRIBUTING.md">how to contribute</a> document.</p>
+
+    <p>If you'd like to chit-chat, <a href="http://groups.google.com/group/skulpt">there's a list for
+        that</a>.</p>
+
+    <p>If you would like to help with coding, these new and improved <a href="http://www.skulpt.org/static/ProgMan/index.html">developer docs</a> will help get you started.</p>
+
+    <h2>Third Party Modules</h2>
+    This new feature lets you create and host your own modules for use in Skulpt.  The
+    following gist shows how to include one of them in a page.
+
+    <script src="./Skulpt_files/20bd9105f11f2a164fc0.js"></script><link rel="stylesheet" href="./Skulpt_files/gist-embed-2f0c18bbf9db8afe105a9b5045800d52ba7ce16d394e711a8ed05ca5112bb486.css"><div id="gist12573811" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-third-party-js" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-javascript">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-third-party-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-third-party-js-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c">// This snippet shows the cool new functionality added by @bzwheeler and the team at trinket.io</span></td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-third-party-js-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-c">// You can now develop and host your own modules for skulpt, and set up a page to make those</span></td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-third-party-js-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-c">// modules available as in the following.</span></td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-third-party-js-LC4" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-third-party-js-LC5" class="blob-code blob-code-inner js-file-line"> <span class="pl-smi">Sk</span>.<span class="pl-smi">externalLibraries</span> <span class="pl-k">=</span> {</td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-third-party-js-LC6" class="blob-code blob-code-inner js-file-line">            numpy <span class="pl-k">:</span> {</td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-third-party-js-LC7" class="blob-code blob-code-inner js-file-line">                path<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>http://example.com/static/primeronoo/skulpt/external/numpy/__init__.js<span class="pl-pds">'</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-third-party-js-LC8" class="blob-code blob-code-inner js-file-line">                dependencies<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>/static/primeronoo/skulpt/external/deps/math.js<span class="pl-pds">'</span></span>],</td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-third-party-js-LC9" class="blob-code blob-code-inner js-file-line">            },</td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-third-party-js-LC10" class="blob-code blob-code-inner js-file-line">            matplotlib <span class="pl-k">:</span> {</td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-third-party-js-LC11" class="blob-code blob-code-inner js-file-line">                path<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>/static/primeronoo/skulpt/external/matplotlib/__init__.js<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-third-party-js-LC12" class="blob-code blob-code-inner js-file-line">            },</td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-third-party-js-LC13" class="blob-code blob-code-inner js-file-line">            <span class="pl-s"><span class="pl-pds">"</span>matplotlib.pyplot<span class="pl-pds">"</span></span> <span class="pl-k">:</span> {</td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-third-party-js-LC14" class="blob-code blob-code-inner js-file-line">                path<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>/static/primeronoo/skulpt/external/matplotlib/pyplot/__init__.js<span class="pl-pds">'</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-third-party-js-LC15" class="blob-code blob-code-inner js-file-line">                dependencies<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>/static/primeronoo/skulpt/external/deps/d3.min.js<span class="pl-pds">'</span></span>],</td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-third-party-js-LC16" class="blob-code blob-code-inner js-file-line">            },</td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-third-party-js-LC17" class="blob-code blob-code-inner js-file-line">            <span class="pl-s"><span class="pl-pds">"</span>arduino<span class="pl-pds">"</span></span><span class="pl-k">:</span> {</td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-third-party-js-LC18" class="blob-code blob-code-inner js-file-line">                path<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>/static/primeronoo/skulpt/external/arduino/__init__.js<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-third-party-js-LC19" class="blob-code blob-code-inner js-file-line">            }</td>
+      </tr>
+      <tr>
+        <td id="file-third-party-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-third-party-js-LC20" class="blob-code blob-code-inner js-file-line">        };</td>
+      </tr>
+</tbody></table>
+
+  </div>
+
+  </div>
+  
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/bnmnetp/20bd9105f11f2a164fc0/raw/9429b4edc198db7ae81d5798138263669fe219be/third-party.js" style="float:right">view raw</a>
+        <a href="https://gist.github.com/bnmnetp/20bd9105f11f2a164fc0#file-third-party-js">third-party.js</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+
+    <h2>Customizing modules after import</h2>
+    <p>If you want to customize how a module behaves you can use the ``onAfterImport`` hook.  Here is a gist of how the trinket guys do it.</p>
+    <script src="./Skulpt_files/8a5a833ee2a6a7d2c7ba.js"></script><link rel="stylesheet" href="./Skulpt_files/gist-embed-2f0c18bbf9db8afe105a9b5045800d52ba7ce16d394e711a8ed05ca5112bb486.css"><div id="gist12637058" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-gistfile1-js" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-javascript">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-gistfile1-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-gistfile1-js-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-smi">Sk</span>.<span class="pl-en">onAfterImport</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">library</span>) {</td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-gistfile1-js-LC2" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">switch</span>(library) {</td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-gistfile1-js-LC3" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">'</span>pygal<span class="pl-pds">'</span></span><span class="pl-k">:</span></td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-gistfile1-js-LC4" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// make charts render instantly</span></td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-gistfile1-js-LC5" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">Highcharts</span>.<span class="pl-en">setOptions</span>({</td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-gistfile1-js-LC6" class="blob-code blob-code-inner js-file-line">        plotOptions<span class="pl-k">:</span> {</td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-gistfile1-js-LC7" class="blob-code blob-code-inner js-file-line">          series<span class="pl-k">:</span> {</td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-gistfile1-js-LC8" class="blob-code blob-code-inner js-file-line">            animation<span class="pl-k">:</span> <span class="pl-c1">false</span></td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-gistfile1-js-LC9" class="blob-code blob-code-inner js-file-line">          }</td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-gistfile1-js-LC10" class="blob-code blob-code-inner js-file-line">        }</td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-gistfile1-js-LC11" class="blob-code blob-code-inner js-file-line">      });</td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-gistfile1-js-LC12" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">break</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-gistfile1-js-LC13" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">'</span>turtle<span class="pl-pds">'</span></span><span class="pl-k">:</span></td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-gistfile1-js-LC14" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// make turtle draw instantly</span></td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-gistfile1-js-LC15" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">Sk</span>.<span class="pl-smi">tg</span>.<span class="pl-smi">defaults</span>.<span class="pl-smi">animate</span> <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-gistfile1-js-LC16" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">Sk</span>.<span class="pl-smi">tg</span>.<span class="pl-smi">Turtle</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">speed</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {}</td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-gistfile1-js-LC17" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">Sk</span>.<span class="pl-smi">tg</span>.<span class="pl-smi">Turtle</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">delay</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {}</td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-gistfile1-js-LC18" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">break</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-gistfile1-js-LC19" class="blob-code blob-code-inner js-file-line">  }</td>
+      </tr>
+      <tr>
+        <td id="file-gistfile1-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-gistfile1-js-LC20" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+</tbody></table>
+
+  </div>
+
+  </div>
+  
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/bzwheeler/8a5a833ee2a6a7d2c7ba/raw/ac6a3ef66af6e353a862c2d4dce2bdf7eaeec169/gistfile1.js" style="float:right">view raw</a>
+        <a href="https://gist.github.com/bzwheeler/8a5a833ee2a6a7d2c7ba#file-gistfile1-js">gistfile1.js</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+
+    <h2>License</h2>
+
+    <p>Skulpt may be licensed under:</p>
+    <ol>
+        <li>The <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>.</li>
+        <li>Or, for compatibility with Python, the <a href="http://www.opensource.org/licenses/PythonSoftFoundation.php">PSFLv2</a>.
+        </li>
+    </ol>
+
+    <p> Please note that this dual license only applies to the part of Skulpt that
+        is included in the runtime, and not necessarily to surrounding code for build
+        processing or testing. Tests are run using <a href="http://code.google.com/p/v8/">V8</a>, and <a href="http://code.google.com/closure/compiler/">Closure Compiler</a>, and
+        some test code is taken from the <a href="http://www.tinypy.org/">tinypy</a>
+        and <a href="http://www.python.org/">Python</a> test suites, which may be
+        distributed under different licensing terms. </p>
+
+    <h2>About</h2>
+
+    <p>The Father of skulpt is Scott Graham, you can find his blog here: <a href="http://www.h4ck3r.net/">personal page
+        (and blog)</a></p>
+
+    <p>My own personal page and blog is <a href="http://reputablejournal.com/">Reputable Journal</a></p>
+
+</div>
+
+<div class="footer">
+
+    <p>
+        Yes, I know how "sculpt" is spelled. The correct spelling was
+        thoroughly reserved according to ICANN and search engines.
+    </p>
+
+</div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Skulpt_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-10993568-1");
+        pageTracker._trackPageview();
+    } catch (err) {
+    }</script>
+
+
+
+</body></html>
