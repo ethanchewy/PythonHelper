@@ -14,7 +14,12 @@
 
 <body> 
 <div>
-    <textarea id="code">print 4 * 4</textarea>
+<textarea id="code">
+//Convert from Celsius to Farenheit
+celsius = float(input('Enter Temperature in Degrees Celsius: '))
+fahrenheit = (celsius * 1.8) + 32
+print('%0.1f degree Celsius is equal to %0.1f degree Fahrenheit' %(celsius,fahrenheit))
+</textarea>
 </div>
 <div>
     <textarea readonly id="code_checker" style="display: none;"></textarea>
