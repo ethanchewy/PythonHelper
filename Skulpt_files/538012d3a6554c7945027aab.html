@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://trinket.io/embed/python/538012d3a6554c7945027aab#.V4wPY5MrLrc -->
+<html lang="en" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths mixblendmode"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./300lo.json"></script><script type="text/javascript" src="./boost"></script>
+  
+  <title>Trinket: run code anywhere</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="icon" href="https://trinket.io/img/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://trinket.io/cache-prefix-1c747650/img/icons/apple-touch-icon-144x144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://trinket.io/cache-prefix-1c747650/img/icons/apple-touch-icon-114x114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://trinket.io/cache-prefix-1c747650/img/icons/apple-touch-icon-72x72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="https://trinket.io/cache-prefix-1c747650/img/icons/apple-touch-icon-precomposed.png">
+  <link rel="stylesheet" type="text/css" href="./font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./font-mfizz.css">
+  <link rel="stylesheet" type="text/css" href="./embed.css">
+  
+<link rel="stylesheet" type="text/css" href="./github.min.css">
+<link rel="stylesheet" type="text/css" href="./rangeslider.min.css">
+<link rel="stylesheet" type="text/css" href="./weather-icons.min.css">
+
+
+  <script async="" src="./fbds.js"></script><script async="" src="./analytics.js"></script><script type="text/javascript">
+    trinket = {
+      config : {
+        apphostname    : 'trinket.io',
+        usersubdomains : true,
+        protocol       : 'https',
+        addthisurl     : '//s7.addthis.com/js/300/addthis_widget.js',
+        cachePrefix    : 'cache-prefix-',
+        prefixes       : {"components":"cache-prefix-3db1afd4","js":"cache-prefix-1c747650","css":"cache-prefix-1c747650","img":"cache-prefix-1c747650","fonts":"cache-prefix-1c747650","partials":"cache-prefix-1c747650","skulpt":"361592c4","pypyjs":"cache-prefix-e8e5bcf1"},
+        broadcastHostname: 'broadcastapp.trinket.io',
+        broadcastPort: '',
+        broadcastProtocol: 'https',
+        python3_api    : 'https://python3.trinket.io'
+      }
+    };
+    </script>
+  
+  <script src="./jquery.min(1).js" type="text/javascript"></script>
+
+  <script src="./modernizr.min.js" type="text/javascript"></script>
+  <script src="./md5.js" type="text/javascript"></script>
+  <script src="./sha1.js" type="text/javascript"></script>
+  <script src="./aes.js" type="text/javascript"></script>
+
+  <!--[if lte IE 9]>
+  <script type="text/javascript" src="/js/vendor/jQuery.XDomainRequest.js"></script>
+  <![endif]-->
+
+  
+
+  <script>
+  
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function() {
+      ga('create', 'UA-46899028-1', 'trinket.io');
+      
+  
+  ga('send', 'pageview');
+  
+    })();
+  </script>
+  
+  
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+  _fbq.push(['addPixelId', '1441353372787187']);
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', 'PixelInitialized', {}]);
+</script>
+<noscript>&lt;img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=1441353372787187&amp;amp;ev=NoScript" /&gt;</noscript>
+  
+
+<style id="ace_editor.css">.ace_editor {position: relative;overflow: hidden;font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;direction: ltr;}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;min-width: 100%;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;text-indent: -1em;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: inherit;color: inherit;z-index: 1000;opacity: 1;text-indent: 0;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;}.ace_text-layer {font: inherit !important;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {-webkit-transition: opacity 0.18s;transition: opacity 0.18s;}.ace_editor.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_line .ace_fold {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {-webkit-transition: opacity 0.4s ease 0.05s;transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {-webkit-transition: opacity 0.05s ease 0.05s;transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}
+/*# sourceURL=ace/css/ace_editor.css */</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style><style>.ace_snippet-marker {    -moz-box-sizing: border-box;    box-sizing: border-box;    background: rgba(194, 193, 208, 0.09);    border: 1px dotted rgba(211, 208, 235, 0.62);    position: absolute;}</style><style>.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {    background-color: #CAD6FA;    z-index: 1;}.ace_editor.ace_autocomplete .ace_line-hover {    border: 1px solid #abbffe;    margin-top: -1px;    background: rgba(233,233,253,0.4);}.ace_editor.ace_autocomplete .ace_line-hover {    position: absolute;    z-index: 2;}.ace_editor.ace_autocomplete .ace_scroller {   background: none;   border: none;   box-shadow: none;}.ace_rightAlignedText {    color: gray;    display: inline-block;    position: absolute;    right: 4px;    text-align: right;    z-index: -1;}.ace_editor.ace_autocomplete .ace_completion-highlight{    color: #000;    text-shadow: 0 0 0.01em;}.ace_editor.ace_autocomplete {    width: 280px;    z-index: 200000;    background: #fbfbfb;    color: #444;    border: 1px lightgray solid;    position: fixed;    box-shadow: 2px 3px 5px rgba(0,0,0,.2);    line-height: 1.4;}</style><meta class="foundation-data-attribute-namespace"><meta class="foundation-mq-xxlarge"><meta class="foundation-mq-xlarge-only"><meta class="foundation-mq-xlarge"><meta class="foundation-mq-large-only"><meta class="foundation-mq-large"><meta class="foundation-mq-medium-only"><meta class="foundation-mq-medium"><meta class="foundation-mq-small-only"><meta class="foundation-mq-small"><style></style><style type="text/css">#at16lb{display:none;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1001;background-color:#000;opacity:.001}#at16pc,#at16pi,#at16pib,#at_complete,#at_email,#at_error,#at_share,#at_success{position:static!important}.at15dn{display:none}.at15a{border:0;height:0;margin:0;padding:0;width:230px}.atnt{text-align:center!important;padding:6px 0 0!important;height:24px!important}.atnt a{text-decoration:none;color:#36b}.atnt a:hover{text-decoration:underline}#at15s,#at16nms,#at16p,#at16p form input,#at16p label,#at16p textarea,#at16recap,#at16sas,#at_msg,#at_share .at_item{font-family:arial,helvetica,tahoma,verdana,sans-serif!important;font-size:9pt!important;outline-style:none;outline-width:0;line-height:1em}* html #at15s.mmborder{position:absolute!important}#at15s.mmborder{position:fixed!important;width:250px!important}#at15s{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);float:none;line-height:1em;margin:0;overflow:visible;padding:5px;text-align:left;position:absolute}#at15s a,#at15s span{outline:0;direction:ltr;text-transform:none}#at15s .at-label{margin-left:5px}#at15s .at-icon-wrapper,#at16ps .at-icon-wrapper{width:1pc;height:1pc;vertical-align:middle}#at15s .at-icon,#at16ps .at-icon{width:1pc;height:1pc}.at4-icon{display:inline-block;background-repeat:no-repeat;background-position:top left;margin:0;overflow:hidden;cursor:pointer}.addthis_16x16_style .at4-icon,.addthis_16x16_white_style .at4-icon,.addthis_default_style .at4-icon,.at4-icon,.at-16x16{width:1pc;height:1pc;line-height:1pc;background-size:1pc!important}.addthis_32x32_style .at4-icon,.addthis_32x32_white_style .at4-icon,.at-32x32{width:2pc;height:2pc;line-height:2pc;background-size:2pc!important}.addthis_24x24_style .at4-icon,.addthis_24x24_white_style .at4-icon,.at-24x24{width:24px;height:24px;line-height:24px;background-size:24px!important}.addthis_20x20_style .at4-icon,.addthis_20x20_white_style .at4-icon,.at-20x20{width:20px;height:20px;line-height:20px;background-size:20px!important}.at4-icon.circular,.circular .at4-icon,.circular.aticon{border-radius:50%}.at4-icon.rounded,.rounded .at4-icon{border-radius:4px}.at4-icon-left{float:left}#at15s .at4-icon{text-indent:20px;padding:0;overflow:visible;white-space:nowrap;background-size:1pc;width:1pc;height:1pc;background-position:top left;display:inline-block;line-height:1pc}.addthis_vertical_style .at4-icon,.at4-follow-container .at4-icon,.sortable-list-container .at4-icon{margin-right:5px}html>body #at15s{width:250px!important}#at15s.atm{background:none!important;padding:0!important;width:10pc!important}#at15s.atiemode2{width:252px!important}#at15s_inner{background:#fff;border:1px solid #fff;margin:0}#at15s_head{position:relative;background:#f2f2f2;padding:4px;cursor:default;border-bottom:1px solid #e5e5e5}.at15s_head_success{background:#cafd99!important;border-bottom:1px solid #a9d582!important}.at15s_head_success a,.at15s_head_success span{color:#000!important;text-decoration:none}#at15s_brand,#at15sptx,#at16_brand{position:absolute}#at15s_brand{top:4px;right:4px}.at15s_brandx{right:20px!important}a#at15sptx{top:4px;right:4px;text-decoration:none;color:#4c4c4c;font-weight:700}#at15s.atiemode2 a#at15sptx,.at15sie6 a#at15sptx{right:8px}#at15sptx:hover{text-decoration:underline}#at16_brand{top:5px;right:30px;cursor:default}#at_hover{padding:4px}#at_hover .at_item,#at_share .at_item{background:#fff!important;float:left!important;color:#4c4c4c!important}#at_share .at_item .at-icon-wrapper{margin-right:5px}#at_hover .at_bold{font-weight:700;color:#000!important}#at16nms,#at16sas{padding:4px 5px}#at16nms{display:none}#at16sas{clear:left;padding-top:1pc;padding-bottom:1pc}#at_hover .at_item{width:7pc!important;padding:2px 3px!important;margin:1px;text-decoration:none!important}#at_hover .at_item.atiemode2{width:114px!important}#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover{margin:0!important}#at16ps .at_item:focus,#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover,#at_share .at_item.athov,#at_share .at_item:hover{background:#f2f2f2!important;border:1px solid #e5e5e5;color:#000!important;text-decoration:none}.ipad #at_hover .at_item:focus{background:#fff!important;border:1px solid #fff}* html #at_hover .at_item{border:1px solid #fff}* html #at_hover .at_item.athov{border:1px solid #e5e5e5!important;margin:1px!important}#at_email15{padding-top:5px}.at15e_row{height:28px}.at15e_row label,.at15e_row span{padding-left:10px!important;display:block!important;width:60px!important;float:left!important}.at15e_row input,.at15e_row textarea{display:block!important;width:150px!important;float:left!important;background:#fff!important;border:1px solid #ccc!important;color:#333!important;font-size:11px!important;font-weight:400!important;padding:0!important}#at_email input,#at_email label,#at_email textarea{font-size:11px!important}#at_email #at16meo{margin:15px 0 0 2px}#at16meo span{float:left;margin-right:5px;padding-top:4px}#at16meo a{float:left;margin:0}#at_sending{top:130px;left:110px;position:absolute;text-align:center}#at_sending img{padding:10px}.at15t{display:block!important;height:1pc!important;line-height:1pc!important;padding-left:20px!important;background-position:0 0;text-align:left}.addthis_button,.at15t{cursor:pointer}.addthis_toolbox a.at300b,.addthis_toolbox a.at300m{width:auto}.addthis_toolbox a{margin-bottom:5px;line-height:initial}.addthis_toolbox.addthis_vertical_style{width:200px}.addthis_toolbox.addthis_close_style .addthis_button_google_plusone{width:65px;overflow:hidden}.addthis_toolbox.addthis_close_style .addthis_button_facebook_like{width:85px;overflow:hidden}.addthis_toolbox.addthis_close_style .addthis_button_tweet{width:62px;overflow:hidden}.addthis_button_facebook_like .fb_iframe_widget{line-height:100%}.addthis_button_facebook_like iframe.fb_iframe_widget_lift{max-width:none}.addthis_toolbox a.addthis_button_counter,.addthis_toolbox a.addthis_button_facebook_like,.addthis_toolbox a.addthis_button_facebook_send,.addthis_toolbox a.addthis_button_facebook_share,.addthis_toolbox a.addthis_button_foursquare,.addthis_toolbox a.addthis_button_google_plusone,.addthis_toolbox a.addthis_button_linkedin_counter,.addthis_toolbox a.addthis_button_pinterest_pinit,.addthis_toolbox a.addthis_button_stumbleupon_badge,.addthis_toolbox a.addthis_button_tweet{display:inline-block}.at-share-tbx-element .google_plusone_iframe_widget>span>div{vertical-align:top!important}.addthis_toolbox span.addthis_follow_label{display:none}.addthis_toolbox.addthis_vertical_style span.addthis_follow_label{display:block;white-space:nowrap}.addthis_toolbox.addthis_vertical_style a{display:block}.addthis_toolbox.addthis_vertical_style.addthis_32x32_style a{line-height:2pc;height:2pc}.addthis_toolbox.addthis_vertical_style .at300bs{margin-right:4px;float:left}.addthis_toolbox.addthis_20x20_style span{line-height:20px;*height:20px}.addthis_toolbox.addthis_32x32_style span{line-height:2pc;*height:2pc}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact,.addthis_toolbox.addthis_pill_combo_style a{float:left}.addthis_toolbox.addthis_pill_combo_style a.addthis_button_tweet{margin-top:-2px}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact{margin-right:4px}.addthis_default_style .addthis_separator{margin:0 5px;display:inline}div.atclear{clear:both}.addthis_default_style .addthis_separator,.addthis_default_style .at4-icon,.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300bs,.addthis_default_style .at300m{float:left}.at300b img,.at300bo img{border:0}a.at300b .at4-icon,a.at300m .at4-icon{display:block}.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300m{padding:0 2px}.at300b,.at300bo,.at300bs,.at300m{cursor:pointer}.addthis_button_facebook_like.at300b:hover,.addthis_button_facebook_like.at300bs:hover,.addthis_button_facebook_send.at300b:hover,.addthis_button_facebook_send.at300bs:hover{opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";filter:alpha(opacity=100)}.addthis_20x20_style .at15t,.addthis_20x20_style .at300bs,.addthis_20x20_style .dummy .at300bs{overflow:hidden;display:block;height:20px!important;width:20px!important;line-height:20px!important}.addthis_32x32_style .at15t,.addthis_32x32_style .at300bs,.addthis_32x32_style .dummy .at300bs{overflow:hidden;display:block;height:2pc!important;width:2pc!important;line-height:2pc!important}.at300bs{background-position:0 0}.at16nc,.at300bs{overflow:hidden;display:block;height:1pc;width:1pc;line-height:1pc!important}.at16t{padding-left:20px!important;width:auto;cursor:pointer;text-align:left;overflow:visible!important}#at_feed{display:none;padding:10px;height:300px}#at_feed span{margin-bottom:10px;font-size:9pt}#at_feed div{width:102px!important;height:26px!important;line-height:26px!important;float:left!important;margin-right:68px}#at_feed div.at_litem{margin-right:0}#at_feed a{margin:10px 0;height:17px;line-height:17px}#at_feed.atused .fbtn{background:url(//s7.addthis.com/static/r05/feed00.gif) no-repeat;float:left;width:102px;cursor:pointer;text-indent:-9000px}#at_feed .fbtn.bloglines{background-position:0 0!important;width:94px;height:20px!important;line-height:20px!important;margin-top:8px!important}#at_feed .fbtn.yahoo{background-position:0 -20px!important}#at_feed .fbtn.newsgator,.fbtn.newsgator-on{background-position:0 -37px!important}#at_feed .fbtn.technorati{background-position:0 -71px!important}#at_feed .fbtn.netvibes{background-position:0 -88px!important}#at_feed .fbtn.pageflakes{background-position:0 -141px!important}#at_feed .fbtn.feedreader{background-position:0 -172px!important}#at_feed .fbtn.newsisfree{background-position:0 -207px!important}#at_feed .fbtn.google{background-position:0 -54px!important;width:78pt}#at_feed .fbtn.winlive{background-position:0 -105px!important;width:75pt;height:19px!important;line-height:19px;margin-top:9px!important}#at_feed .fbtn.mymsn{background-position:0 -158px;width:71px;height:14px!important;line-height:14px!important;margin-top:9pt!important}#at_feed .fbtn.aol{background-position:0 -189px;width:92px;height:18px!important;line-height:18px!important}.addthis_default_style .at15t_compact,.addthis_default_style .at15t_expanded{margin-right:4px}#at16clb{font-size:16pt;font-family:verdana bold,verdana,arial,sans-serif}#at_share .at_item{width:123px!important;padding:4px;margin-right:2px;border:1px solid #fff}#at16pm{background:#fff;width:298px;height:380px;text-align:left;border-right:1px solid #ccc;position:static}#at16pcc,#at16pccImg{position:fixed;top:0;left:0;width:100%;margin:0 auto;font-size:10px!important;color:#4c4c4c;padding:0;z-index:10000001;overflow:visible}#at16pccImg{height:100%}* html #at16pcc{position:absolute}#at16abifc{overflow:hidden;margin:0;top:10px;left:10px;height:355px;width:492px;position:absolute;border:0}#at16abifc iframe{border:0;position:absolute;height:380px;width:516px;top:-10px;left:-10px}* html div#at16abifc.atiemode2{height:374px;width:482px}* html #at16abifc iframe{height:23pc;left:-10px;top:-10px;overflow:hidden}#at16p{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);z-index:10000001}#at16p,#atie6cmifh,#atie6ifh{position:absolute;top:50%;left:50%;width:300px;padding:10px;margin:0 auto;margin-top:-185px;margin-left:-155px;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#5e5e5e}#atie6ifh{width:322px;height:381px;margin-left:-165px}#atie6cmifh,#atie6ifh{padding:0;z-index:100001}#atie6cmifh{width:15pc;height:225px;margin:0}#at_share{margin:0;padding:0}#at16ps{overflow-y:scroll;height:19pc;padding:5px}a#at16pit{position:absolute;top:37px;right:10px;display:block;background:url(data:image/gif;base64,R0lGODlhEAAUAKIFAKqqquHh4cLCwszMzP///////wAAAAAAACH5BAEAAAUALAAAAAAQABQAAAMtOLqsAqWQSSsN0OoLthfeNoTaSFbmOaUqe7okHMoeLaqUXeITiGM/SGM4eEQSADs=) no-repeat;width:1pc;height:20px;line-height:19px;margin-right:-17px;text-align:center;overflow:hidden;color:#36b}#at16pi{background:#e5e5e5;text-align:left;border:1px solid #ccc;border-bottom:0}#at16pi a{text-decoration:none;color:#36b}#at16p #at16abc{margin-left:2px!important}#at16pi a:hover{text-decoration:underline}#at16pt{position:relative;background:#f2f2f2;height:13px;padding:5px 10px}#at16pt a,#at16pt h4{font-weight:700}#at16pt h4{display:inline;margin:0;padding:0;font-size:9pt;color:#4c4c4c;cursor:default}#at16pt a{position:absolute;top:5px;right:10px;color:#4c4c4c;text-decoration:none;padding:2px}#at15sptx:focus,#at16pt a:focus{outline:thin dotted}#at16pc form{margin:0}#at16pc form label{display:block;font-size:11px;font-weight:700;padding-bottom:4px;float:none;text-align:left}#at16pc form label span{font-weight:400;color:#4c4c4c;display:inline}#at_email form .abif{width:17pc!important}#at_email textarea{height:55px!important;word-wrap:break-word}* html #at_email textarea,:first-child+html #at_email textarea{height:42px!important}#at_email label{width:220px}#at_email input,#at_email textarea{background:#fff;border:1px solid #bbb;width:17pc!important;margin:0;margin-bottom:8px;font-weight:400;padding:3px!important;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:11px;line-height:1.4em;color:#333}#at_email form .atfxmode2{width:279px!important}#at16pc form .at_ent{color:#333!important}#at16pc textarea{height:3pc}#at16pc form input:focus,#at16pc textarea:focus{background:ivory;color:#333}#at16p .atbtn,#at16recap .atbtn{background:#fff;border:1px solid #b5b5b5;width:60px!important;padding:2px 4px;margin:0;margin-right:2px!important;font-size:11px!important;font-weight:700;color:#333;cursor:pointer}#at16p .atbtn:focus,#at16p .atbtn:hover,#at16recap .atbtn:focus,#at16recap .atbtn:hover{border-color:#444;color:#06c}#at16p .atrse,#at16recap .atrse{font-weight:400!important;color:#666;margin-left:2px!important}#atsb .atbtn{width:78px!important;margin:0!important}#at_email #ateml{text-align:right;font-size:10px;color:#999}#at16pc{height:343px!important;font-size:11px;text-align:left;color:#4c4c4c}#at_email{padding:5px 10px}#at16pc .tmsg{padding:4px 2px;text-align:right}#at16psf{position:relative;background:#f2f2f2 url(data:image/gif;base64,R0lGODlhGQEVAMQYAGZmZuDg4Ozs7MjIyMzMzPj4+LOzs3BwcMbGxsvLy5+fn/X19djY2IODg+bm5paWlnl5eeLi4oyMjKmpqdXV1dvb28/Pz////////wAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABgALAAAAAAZARUAAAX/ICaOGJFYaKqubOu+cCzPdG3feK7vPJwQpOBoEChcjsikcslsOp/QqHRKrVqv2Kx2Gy0EBkKRgMEtm8/otHrNTjMEQYGjTa/b7/h82gEfVfSAgYKDhGcVQ0sLBhAAEAYLhZGSk5RqYBgBSgsNAA0GnA2QlaOkpaZHASVGSQYACEgIABOntLW2eAUmSxASShIHt8HCw1snSwAGSq3EzM3OSyhLBw9KD8DP2Nm30UoKrrAACtrj5KMWCYmcCgbeAAcR5fHygT+rSQvtAA8A7vDz/wDV5MIUJVa/gAgTZkmFYYAUg70USpz45BKGPwUPiKPIseOhEXI6ihzphE8cMiRTMI58E6ZhEZUwEXqx2LIEAwsUKujcybOnz59AgwodSrSo0aNIkypdyrSpU58ofoQJAQA7) no-repeat center center;border-bottom:1px solid #ccc;height:20px;padding:4px 10px;text-align:center}* html #at16psf input,:first-child+html #at16psf input{padding:0}#at16psf input,#at16psf input:focus{background:#fff;border:none;width:220px;margin:2px 0 0;color:#666;outline-style:none;outline-width:0;padding:2px 0 0;line-height:9pt;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt}#at16pcc .at_error,#at16recap .at_error{background:#f26d7d;border-bottom:1px solid #df5666;padding:5px 10px;color:#fff}#at16pcc #at_success{background:#d0fbda;border-bottom:1px solid #a8e7b7;padding:5px 10px;color:#4c4c4c}#at_complete{font-size:13pt;color:#47731d;text-align:center;padding-top:130px;height:13pc!important;width:472px}#at_s_msg{margin-bottom:10px}.atabout{left:55px}.ac-about{right:20px}.at_baa{display:block;overflow:hidden;outline:0}#at15s #at16pf a{top:1px}#at16pc form #at_send{width:5pc!important}#at16pp{color:#4c4c4c;position:absolute;top:9pt;right:9pt;font-size:11px}#at16pp label{font-size:11px!important}#at16ppc{padding:10px;width:179px}#at16pph{padding:5px 0 10px}#at16pph select{margin:5px 0 8px}#at16pp .atinp{width:156px}#at16ppb{background:#fff;border:1px solid #ccc;height:274px}#at16ep{height:1pc;padding:8px}#at16ep a{display:block;height:1pc;line-height:1pc;padding-left:22px;margin-bottom:8px;font-size:9pt}#at16ep a.at_gmail{background:url(data:image/gif;base64,R0lGODlhEAAQALMPAPKqo95TU+NkY/TCwP74+PbX1/zo59wtJ/nx7uZ7fvnRzfCTgvq2td9DQf///////yH5BAEAAA8ALAAAAAAQABAAAARi8MlJq700hMS6/4vWNIdQOERKOMgyvqSgOLRjJAe8CUcw0ApeYyF4DQpCwCDQGyCKo59BGDtNjbRBIvazQRtSxgCwGDAMrO/AcK7ZztcRoO1+B43oOs0Qb8w/gAxFGISFFREAOw==) no-repeat left}#at16ep a.at_hotmail{background:url(data:image/gif;base64,R0lGODlhEAAQAMQfAP7XFG7B4/zjl/JZIAm7TK7V7v3FY/aLRGDNhOqmkA2ql/2YJvfr2Pn7++9vWtXe6/jQvOfw9funZg2EzEWv3zil0heg0zDCbESHx9PpxY6TvJ3QpPJtQf7+/v///////yH5BAEAAB8ALAAAAAAQABAAAAWO4CeOpNhAUFeuzDEMiRepK/S+XDBVjzd6kAWHc3tMjpVZhyE8cByvDsViOQYehsPCSeR8IpQpFZMwGCQHl/dToAQoionGLEHDRJ5CoHJRkM92ED8FCgQEGHNoDgsCJB4XhgpzZwsAjSQZFxcIGgCengwlHRsIpQKfAg0rHQiGEacGqisfDZsdtzSzHz4rIQA7) no-repeat left}#at16ep a.at_yahoo{background:url(data:image/gif;base64,R0lGODlhEAAQAKIHAPylpevx8bsICNJfX/jQ0Kahof8AAP///yH5BAEAAAcALAAAAAAQABAAAANJeLrc/jAuAmolcQhjhBiBBRDDAChAVxzE5g3csKRGQQpFqDL0fsCCQCOFUwR8vI7wECgtjQDg6CfA8DxYmWbVCHi/TK9kTC4zEgA7) no-repeat left}#at16ppf p#atsb{padding-top:20px;font-size:10px}#at16abr{margin-top:10px}#at16abr input{padding:0;margin:0;margin-right:5px}#at16ppso{display:none;text-align:right;margin-top:2px}#at16ppa{background:#fff;border:1px solid #ccc;height:228px;width:178px;overflow:auto}#at16ppa a{display:block;white-space:nowrap;padding:4px 8px;font-size:9pt!important}#at16eatdr{position:absolute;background:#fff;border-top:0;max-height:110px;overflow:auto;z-index:500;top:129px;left:21px;width:277px}* html #at_email #at16eatdr,:first-child+html #at_email #at16eatdr{top:115px!important;width:17pc!important}#at16eatdr a{display:block;overflow:hidden;border-bottom:1px dotted #eee;padding:4px 8px}#at16eatdr a.hover,#at16eatdr a:hover{background:#e0eefa;text-decoration:none;color:#333}#at_pspromo{height:130px;padding-top:10px}#at15psp,#at_pspromo{width:205px;padding-left:5px}#at_testpromo{font-size:9pt;width:220px;display:none}.atm-i #at_pspromo{height:150px}.atm-i #at_pspromo,.atm-i #at_testpromo{width:140px}#at_testpromo input{width:200px}#at_promo .at-promo-content,#at_testpromo .at-promo-content{margin-top:9pt}#at_promo .at-promo-btn,#at_testpromo .at-promo-btn{padding-top:10px}#at_promo h4,#at_testpromo h4{font-family:arial,helvetica,tahoma,verdana,sans-serif;background:0;font-size:14px;font-weight:700;margin:0 0 4px;padding:0;line-height:18px;height:36px}.atm-i #at_promo h4,.atm-i #at_testpromo h4{height:66px}#at_testpromo h4{font-size:13.5px}#at_promo h4 sup{font-size:11px;color:#ee6a44}#at_promo span{display:block}#_atssh{width:1px!important;height:1px!important;border:0!important}.at-promo-single{padding:10px;padding-top:2px;line-height:1.5em}.at-promo-single img{padding:3px}.at-promo-content img{margin-right:5px;margin-bottom:20px;float:left}.addthis_textshare{display:block;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABKCAYAAAAYJRJMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABmNJREFUeNrsmk9oI3UUx99vZjL5n7TbukLbxYve1INa8KAi6F48ubAHV2+KWCoqyF4WpZZ6cuthq1gKe1oU9+CCoLjg+uciCEWQPSjuReyy7Vq7W7LNJM0kM5nxvV9+U5JNk/xCm8wmMw8ek06TXyafee/93u83XwY1Y+jKwsLCiUwm87Gqqg8oigJBMsdxoFqtXs/n86fn5ua+plPoLhNw1NnZ2ZPZbPai67pgWRbQMUjGGINIJMKPOzs7p5aXly/h6apGkYMexZOLSA/K5TKYpgm2bQcKkKZpEIvFIBqNUnAs4qlv0U0CpKInt7a2pjC1+JuDBoeMsobcMAxKtSliQqcJEHmSIofCK8hGgMhEeSFABS+CopVKJfCAPBOAosRG82awEFATIKrNTPOKuAyg54/p8O6Lz0AylgKnVAEo4WxXruKIdW9SGBSNPCz9+jv8uFUdZEAchgcIZAC98+wjMK644Nz8B9x8GcCogFvarQHC6g9ModEhHk/CWw/eD5fX1wYZEDQAkinSCasCzvYdcAwsZgWLR6H78ttgRxDOd1+AbuTAxZnQrZiQsC0+5tAAkomgqmGCi/0C5EuYk5heWMKSj06DFU9B8fKXwBAgRHRe2qr4JTTm0ADyprj2gMocgJPIQnUkhhmlAMPBGEaLmRkDB18r2LJHSwb/kkEF1NBAdgPIMTFqbBOiL7wCypPP1apYMg0RPIzNvs+hFK6uAlz8hC9kZMYcKkBAk1KEpjwTtGKeF3oWT2ApUkEvl8Ct2qBZou5gLQoeIPzRDAty5colqHz/FQeTPHMObKxBhU8/AH17k69pIJ3ka+GhAoTrj84ppqje3gC6eD8WZBfP8887uIajFXEGZzXLkRpzYADRfkjHANIwv1yH9gZ49FDfY63+DI4eraVWIopwYgAp/NtmUmMODCAZy+EqfyyVxS66KKhWofLN55yXnsK0ymI9SscgMn4Ecuvrw7EN0s2b3/tpFT48/hSMJBKw1ypo0VrhjmtYn3SEpUJ+YxPOXPhhODbS0DPox9D/CJepDfYw+g0l5NDeQkAhoMMBRCV3LcSxZ2uCCQfkikXEEnopZMMZLAkmLrXGfE8anR5lUPNyH/rRgML5E/08+m/oW+iGJsBQ53dL/OM6ekr0SL3YpGYicl9Cf6zLz/6LfgH9NjRu9B54C0hwKAgwtwQT27tYiqARET1j6Gl0vUeAFDE2PVZ5Df0Jyc/dRD8nLr7spcAhAqLNKwN9W3zHHfoeVndH6aIT4sJjPYwgSum4uBGUyrPo0xJwzorovi3utNWDCDJF5OwKYA6jTS5W22tl4uK9Z2W9agEUcQOOoE+gT6K/2QYSwfkI/W/x+pb4AdVDTjNHjGl7Y5OxfosUxM2IiDpHETTVBlI9nBvo/6Hv0N3F6+7LVkHfG0W3dkesuoJIM+cG+mdikmgFZ7PfcPgN9Uvm0iKSJkQkTYqaUw8n3284vgJqAYkAjYsamBNR5BucrveDepFuyMhLNxDF0RCpnxdTrm9wfI+gfSIpJloAJnqdkp9w7hlAdZAUkV7etOv4CQfqGkF+cSsrKyfS6TQXcQZNCkOBQiJOwzBOz8zMNIs45+fnT46OjnIRJ0nwgijipGd6dMzlcqeQR6OIs1gsLpZKJf48nVQZw/BMq6v1j6pyAaeu6/S4qlnEub29PeVpo4MGxzNPbIGAmkWcGEEQNPF4y0VZ7YFno4iTtNEhoAZAjSLOEFAToEYRJxXoToCePurCG8cfh2QsCc4uNsDm/iLO3YIB569eg192tEEG1CjipAjq1Pu8Pv0QjDEHnI32Is5YPAmvTqTgymZuYHuiprUYRVAnQHHLlBdx4oxAYwYKkE0iTlVOxGm7MFyAZFLMIRGnJifipFSjMYcGkIym2SFlvSYr4hxcQPvuB8kA4utqJifipFo0qELyfQFJaZoVrSsR51DppGV+jOP1SZIizqECFIo4OwCSsVDE2cFCEWdo9RaKOGUsBBQCOhxAoYiz0dYgFHG2tFDE2cZCEWerdTiEIs6OgEIRp0QENYs468I+FHHeJeIEIV7wY3lzYBGn+EE9N9Wn2cK7W5Y4ErRrAtRkCzh7Urx+wfETUCtIf9UBOus3HOhRET5IurUVcfYbTtf7QT2wes00QBsRpx9w7oUIujuS9hVx+gWHX1jQpHbd2v8CDAAwldUwLVojIgAAAABJRU5ErkJggg==) no-repeat 0 0;width:44px;height:37px;line-height:28px;padding:0 0 0 28px;margin:0;text-decoration:none;font-family:helvetica,arial,sans-serif;font-size:9pt;color:#fff;cursor:pointer}.addthis_textshare:hover{background-position:0 -37px;text-decoration:none}.at_img_share{position:absolute;opacity:0;background:url(data:image/gif;base64,R0lGODlhFwAVAMQAAP7+/vLy8vv7+/X19fj4+Pz8/PHx8f39/fDw8O/v7/T09Pn5+fPz8/r6+vb29vf394CAgHZ2dm5ubklJSWRkZFtbW39/f4KCglJSUnt7e3h4eAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAXABUAAAWLICCOZGmeaAocbOu+MFvMdG3fs6DvfO//PY0QqGsYj8iMEslsLJ7QqGUarS4I2Kz2wtV6vwSIeEyGfB/odGTNbkfSaYd8Lqnb75L5fMDv+ymAfoKDghWGhH0KiouMGI6MkAoMk5SVE5eVmQwBnJ2en6ChoqMBBqanqKmqpgitrq+wsa0JtLW2t7i0IQA7) repeat-x bottom;border:1px solid #ccc;width:23px;height:21px;line-height:21px;text-indent:-9999px;padding:0;margin:0;cursor:pointer;z-index:1000}.at_img_share:hover{border-color:#8b8b8b}.at_img_share .addthis_toolbox{width:180px;margin:0 auto}.atm{width:10pc!important;padding:0;margin:0;line-height:9pt;letter-spacing:normal;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#444;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);padding:4px}.atm-f{text-align:right;border-top:1px solid #ddd;padding:5px 8px}.atm-i{background:#fff;border:1px solid #d5d6d6;padding:0;margin:0;box-shadow:1px 1px 5px rgba(0,0,0,.15)}.atm-s{margin:0!important;padding:0!important}.atm-s a:focus{border:transparent;outline:0;-webkit-transition:none;transition:none}#at_hover.atm-s a,.atm-s a{display:block;text-decoration:none;padding:4px 10px;color:#235dab!important;font-weight:400;font-style:normal;-webkit-transition:none;transition:none}#at_hover.atm-s .at_bold{color:#235dab!important}#at_hover.atm-s a:hover,.atm-s a:hover{background:#2095f0;text-decoration:none;color:#fff!important}#at_hover.atm-s .at_bold{font-weight:700}#at_hover.atm-s a:hover .at_bold{color:#fff!important}.atm-s a .at-label{vertical-align:middle;margin-left:5px;direction:ltr}.atm-i #atic_settings{border:none!important;border-top:1px solid #d5d6d6!important;padding-top:6px!important;top:4px}.at_a11y{position:absolute!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}.at_a11y_container{margin:0;padding:0}.addthis_overlay_container{position:absolute}.addthis_overlay_toolbox{-webkit-border-top-left-radius:10px;-webkit-border-top-right-radius:10px;-moz-border-radius-topleft:10px;-moz-border-radius-topright:10px;border-top-left-radius:10px;border-top-right-radius:10px;padding:5px;background-color:#000;background-color:rgba(0,0,0,.6)}.linkServiceDiv{height:200px;width:25pc;border:1px solid #000;background-color:#aaa}.at_redloading{background:url(data:image/gif;base64,R0lGODlhCgAKAJEDAMzMzP9mZv8AAP///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQFAAADACwAAAAACgAKAAACF5wncgaAGgJzJ647cWua4sOBFEd62VEAACH5BAUAAAMALAEAAAAIAAMAAAIKnBM2IoMDAFMQFAAh+QQFAAADACwAAAAABgAGAAACDJwHMBGofKIRItJYAAAh+QQFAAADACwAAAEAAwAIAAACChxgOBPBvpYQYxYAIfkEBQAAAwAsAAAEAAYABgAAAgoEhmPJHOGgEGwWACH5BAUAAAMALAEABwAIAAMAAAIKBIYjYhOhRHqpAAAh+QQFAAADACwEAAQABgAGAAACDJwncqi7EQYAA0p6CgAh+QQJAAADACwHAAEAAwAIAAACCpRmoxoxvQAYchQAOw==);height:1pc;width:1pc;background-repeat:no-repeat;margin:0 auto}.at-promo-single-dl-ch{width:90pt;height:37px}.at-promo-single-dl-ff{width:90pt;height:44px}.at-promo-single-dl-saf{width:90pt;height:3pc}.at-promo-single-dl-ie{width:129px;height:51px}.atPinBox{position:fixed;top:25%;left:35%;background:#fff;width:482px;margin:0 auto;overflow:auto;overflow-x:hidden;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);border-radius:8px;-webkit-border-radius:8px;-moz-border-radius:8px;padding:8px;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#cfcaca;z-index:10000001}.atPinHdr,.atPinWinHdr{display:block;background:#f1f1f1;border-bottom:1px solid #ccc;box-shadow:0 0 3px rgba(0,0,0,.1);-webkit-box-shadow:0 0 3px rgba(0,0,0,.1);-moz-box-shadow:0 0 3px rgba(0,0,0,.1);padding:8px 10px;font-size:1pc;line-height:1pc;color:#8c7e7e}.atPinHdr img,.atPinWinHdr img{vertical-align:bottom;margin-left:5px;cursor:pointer}.atPinHdr span{vertical-align:top}.atPinHdr{height:1pc}.atPinMn{background:#fff;padding:10px;height:296px;overflow:auto;overflow-x:hidden;text-align:center;position:relative}.atPinHdrMsg{left:20px}.atPinClose{width:9pt;text-align:right;font-weight:700;position:absolute;right:15px;cursor:pointer}.atImgSpanOuter{position:relative;overflow:hidden;height:200px;width:200px;border:1px solid #a0a0a0;float:left;display:block;margin:10px;background-color:#fff}.atImgSpanInner img{cursor:pointer}.atImgSpanSize{position:absolute;bottom:0;left:0;right:0;display:block;background:#fff;height:22px;line-height:24px;color:#000;overflow:hidden;font-size:10px;zoom:1;filter:alpha(opacity=70);opacity:.7}.atImgActBtn{display:none;width:2pc;height:2pc;position:absolute;top:75px;left:5pc;background-color:#fff}.atPinWin{font-family:arial,helvetica,tahoma,verdana,sans-serif;text-align:center}.atPinWinHdr{display:block;font-size:20px;height:20px;width:100%;position:fixed;z-index:1}.atPinWinMn{text-align:center;padding:40px 0 0;display:inline-block}.atImgIco,.atImgMsg{float:left}.atImgIco{margin-right:5px}.atNoImg{display:block;margin-top:40px;font-size:1pc;line-height:1pc;color:#8c7e7e}.at_PinItButton{display:block;width:40px;height:20px;padding:0;margin:0;background-image:url(//s7.addthis.com/static/t00/pinit00.png);background-repeat:no-repeat}.at_PinItButton:hover{background-position:0 -20px}.addthis_toolbox .addthis_button_pinterest_pinit{position:relative}.at-share-tbx-element .fb_iframe_widget span{vertical-align:baseline!important}.at3PinWinMn{text-align:center;padding:20px 0 0 20px;overflow:auto;height:437px}.at3ImgSpanOuter{position:relative;width:185px;height:185px;border:1px solid #dedede;margin:0 10px 10px 0;overflow:hidden;float:left}.at3ImgSpanOuter:hover{border-color:#3dadfc;box-shadow:0 0 3px #3dadfc;cursor:pointer}.at3ImgSpanOuter .atImgLB{display:block;position:absolute;top:0;bottom:0;left:0;right:0;z-index:1;background-color:rgba(0,0,0,.8);background-repeat:no-repeat;background-position:center center}#at3lb{position:fixed;top:0;right:0;left:0;bottom:0;z-index:16777270;display:none}.at3lblight{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpizCuu/sRABGBiIBKMKqSOQoAAAwC8KgJipENhxwAAAABJRU5ErkJggg==);background:hsla(217,6%,46%,.65)}.at3lbdark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBg2M9ABGBiIBKMKqSOQoAAAwBAlwDTJEe1aAAAAABJRU5ErkJggg==);background:rgba(0,0,0,.5)}.at3lbnone{background:hsla(0,0%,100%,0)}#at3win{position:fixed;_position:absolute;top:15%;left:50%;margin-left:-20pc;background:#fff;border:1px solid #d2d2d1;width:40pc;box-shadow:0 0 8px 4px rgba(0,0,0,.25);font-family:helvetica neue,helvetica,arial,sans-serif;z-index:16777271;display:none;overflow:hidden}#at3win #at3winheader{position:relative;border-bottom:1px solid #d2d2d1;background:#f1f1f1;height:49px;cursor:default}#at3win #at3winheader p{position:absolute;top:1pc;left:75pt;width:475px;padding:0;margin:0;font-size:14px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#at3win #at3winheader h3{height:49px;text-align:left;line-height:49px;margin:0 50px 0 22px;border:0;padding:0 20px;font-size:1pc;font-family:helvetica neue,helvetica,arial,sans-serif;font-weight:700;text-shadow:0 1px #fff;color:#333;direction:ltr}#at3win #at3winheader h3.logoaddthis{padding-left:22px}#at3win #at3winheader .at3winheadersvc{display:inline-block;position:absolute;top:15px;left:20px;cursor:default!important;opacity:1!important}#at3win #at3winheader .at3winheadersvc .at-icon,#at3win #at3winheader .at3winheadersvc .at-icon-wrapper{display:block}#at3win #at3winheader #at3winheaderclose{display:block;position:absolute;top:0;right:0;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2tpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wUmlnaHRzPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvcmlnaHRzLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcFJpZ2h0czpNYXJrZWQ9IkZhbHNlIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjQwNzc2QTQ5Qjk1RDExRTFCMkE4OEUxNTUwRjMwREY0IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjQwNzc2QTQ4Qjk1RDExRTFCMkE4OEUxNTUwRjMwREY0IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzMgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InV1aWQ6OEE1QUU0REMzMEU4REYxMUJCNzJGQkJCQzlBM0Y1RkMiIHN0UmVmOmRvY3VtZW50SUQ9InV1aWQ6M0M5RkJGRTEyQUU4REYxMUJCNzJGQkJCQzlBM0Y1RkMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz78RHhFAAAApUlEQVR42rxTiQnAIAxU6QAdxRW6iZ1EnKRu4gqO0g1sCilEvT7Q0kBQ9O4wl6hLKepNGPUyhmMTQhhpSZTZez8jMGEWWizlRJi1fUHiS8dARHaMSaiELPaViCB3WC1NBMB4CMozWaJuuwBE1BkZdoEB8Qn5kzaaC7fbgN0xN+TYlNOJmCvyXjPwpBKRL7BnhgERiwQmHhDothDJjMVz8Ptv3AQYAJWjVVdnlDZCAAAAAElFTkSuQmCC);background-repeat:no-repeat;background-position:center center;border-left:1px solid #d2d2d1;width:49px;height:49px;line-height:49px;overflow:hidden;text-indent:-9999px;text-shadow:none;cursor:pointer}#at3win #at3winheader #at3winheaderclose:hover{background-color:#dedede}#at3win #at3wincontent{height:450px;position:relative}#at3wincopy,#at3winemail,#at3winshare{height:450px}#ate-promo .addthis_button_twitter .aticon-twitter{background-position:0 -4pc!important}#at3wincontent{-o-box-sizing:content-box;box-sizing:content-box}#at3win #at3wincontent.at3nowin{position:relative;height:25pc;padding:20px;overflow:auto}#at3winfooter{position:relative;background:#fff;-o-box-sizing:content-box;box-sizing:content-box;border-top:1px solid #d2d2d1;height:11px;_height:20px;line-height:11px;padding:5px 20px;font-size:11px;color:#666}#at3winfooter a{margin-right:10px;text-decoration:none;color:#666;float:left}#at3winfooter a:hover{text-decoration:none;color:#000}#at3logo{background:url(//s7.addthis.com/static/t00/at3logo-sm.gif) no-repeat left center!important;padding-left:10px}#at3privacy{position:absolute;top:5px;right:10px;background:url(//s7.addthis.com/static/t00/at3-privacy.gif) no-repeat right center!important;padding-right:14px}#at3winfilter{background:#f1f1f1;border-top:1px solid #fff;border-bottom:1px solid #d2d2d1;padding:13px 0;text-align:center}#at3winsvc-filter{background-repeat:no-repeat;background-position:right;background-image:url(data:image/gif;base64,R0lGODlhHgAUALMAAJiYmHV1deTk5Kmpqbe3t9nZ2Y2Njfn5+fT09Ozs7MnJyYGBgWpqav39/WZmZv///yH5BAAAAAAALAAAAAAeABQAAASi8MlXxgoLqDa7/xICOGTpLAKoTshCMsZgBG+6gqNjJA93DAxH4HDzCEgGTqdBIBGKnSYjoewcXAvoZJRVDUhErcEBWClIPC1X1fg6ENrHl4GoThquQJxCKn+kA3sPY2QHSkwMQQJ2Nw0INEIABBYmATZxCQtBJpyWgg0KBkEMCwQKm0KXgoYTBaiegh8NriUBabFLtH24Hg2zm368HgULKDcRADs=);border:1px solid #d2d2d1;padding:15px 38px 15px 9pt;margin:0 auto;width:374px;text-align:left;font-size:18px;border-radius:5px;box-shadow:inset 0 1px 2px rgba(0,0,0,.1);-webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);-moz-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);color:#666}#service-filter:hover{border-color:#9c9c9c}#service-filter:focus{border-color:#3dadfc;box-shadow:0 0 4px rgba(61,173,252,.8);-webkit-box-shadow:0 0 4px rgba(61,173,252,.8);-moz-box-shadow:0 0 4px rgba(61,173,252,.8);outline:0}#at3wintoolbox{margin:0 0 0 20px;height:340px;overflow:auto;padding:10px 0}#at3wintoolbox a{display:block;float:left;width:180px;padding:4px;margin-bottom:10px;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;font-size:1pc;color:#235dab}#at3wintoolbox a:focus,#at3wintoolbox a:hover{background-color:#2095f0}#at3wintoolbox a:focus,#at3wintoolbox a:hover,#at3wintoolbox span:hover{text-decoration:none;color:#fff;font-weight:400;text-shadow:none;opacity:1;filter:alpha(opacity=100);cursor:pointer}#at3wintoolbox span{display:block;height:2pc;line-height:2pc;padding-left:38px!important;width:auto!important}.service-icon{padding:4px 8px}.service-icon:hover{background:#2095f0;color:#fff}.service-icon span{padding-left:20px}#at3winssi{position:absolute;right:50px;top:0;height:50px;display:block}.at-quickshare-header-peep{position:absolute;top:0;right:34px;height:1pc;padding:6px;border-left:1px solid #dedede;cursor:pointer}.at-quickshare-header-peep.peep-active{background:#dedede;cursor:default}.at-quickshare-header-peep span{display:inline-block;background:url(data:image/gif;base64,R0lGODlhBwAEAIABALm5uf///yH5BAEAAAEALAAAAAAHAAQAAAIIhA+BGWoNWSgAOw==) no-repeat right;padding-right:11px}.at-quickshare-header-peep span img{display:block;background:#ccc;width:1pc;height:1pc;line-height:20px;overflow:hidden;text-indent:-9999px;border:1px solid #bbb;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px}.at-quickshare-header-peep ul{position:absolute;top:25px;left:-75px;width:140px;background:#fff;border:1px solid #bbb;border-radius:4px;box-shadow:0 1px 4px hsla(0,0%,40%,.8);margin:0;padding:0;font-weight:400;z-index:1100}.at-quickshare-header-peep ul li{list-style:none;font-size:9pt;padding:0;margin:0;text-align:left}.at-quickshare-menu{outline:0}.at-quickshare-menu li.at-quickshare-menu-sep{border-bottom:1px solid #dedede}.at-quickshare-header-peep ul li a{display:block;padding:5px 10px;text-decoration:none;color:#666}.at-quickshare-header-peep ul li a:hover{background:#0d98fb;text-decoration:none;color:#fff}#at_auth{position:relative;box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;-o-box-sizing:content-box;border-top:1px solid #d5d6d6!important;padding:10px 10px 7px;line-height:1pc;height:1pc}#atic_signin{cursor:pointer}#atic_signin,#atic_signin:hover{text-decoration:none}#atic_signin #at_auth:hover{background:#2095f0;text-decoration:none;color:#fff!important}#atic_usersettings{cursor:pointer}#atic_usersettings:hover{text-decoration:underline}#atic_usersignout{font-size:11px;position:absolute;top:10px;right:10px;cursor:pointer}#atic_usersignout:hover{text-decoration:underline}#at_auth img{width:1pc;height:1pc;overflow:hidden;border:none;padding:0;margin:0 5px 0 0;float:left}#at_auth a{text-decoration:none}#at16pf{height:auto;text-align:right;padding:4px 8px}.at-privacy-info{position:absolute;left:7px;bottom:7px;cursor:pointer;text-decoration:none;font-family:helvetica,arial,sans-serif;font-size:10px;line-height:9pt;letter-spacing:.2px;color:#666}.at-privacy-info:hover{color:#000}@media screen and (max-width:680px){#at3win{width:95%;left:auto;margin-left:auto}}@media print{#at3win,#at4-follow,#at4-share,#at4-thankyou,#at4-whatsnext,#at4m-mobile,#at15s,.at4,.at4-recommended{display:none!important}}@media screen and (max-width:400px){.at4win{width:100%}.addthis_bar .addthis_bar_p{margin-right:auto}}@media screen and (max-height:700px) and (max-width:400px){.at4-thankyou-inner .at4-recommended-container{height:122px;overflow:hidden}.at4-thankyou-inner .at4-recommended .at4-recommended-item:first-child{border-bottom:1px solid #c5c5c5}}</style><style type="text/css">.at-icon{fill:#fff;border:0}.at-icon-wrapper{display:inline-block;overflow:hidden}a .at-icon-wrapper{cursor:pointer}.at-rounded,.at-rounded-element .at-icon-wrapper{border-radius:12%}.at-circular,.at-circular-element .at-icon-wrapper{border-radius:50%}.addthis_32x32_style .at-icon{width:2pc;height:2pc}.addthis_24x24_style .at-icon{width:24px;height:24px}.addthis_20x20_style .at-icon{width:20px;height:20px}.addthis_16x16_style .at-icon{width:1pc;height:1pc}</style><style type="text/css">.at-branding-logo{font-family:helvetica,arial,sans-serif;text-decoration:none;font-size:10px;display:inline-block;margin:2px 0;letter-spacing:.2px}.at-branding-logo .at-branding-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////+GlNUkcc1QAAAB1JREFUeNpiYIQDBjQmAwMmkwEM0JnY1WIxFyDAABGeAFEudiZsAAAAAElFTkSuQmCC")}.at-branding-logo .at-branding-icon,.at-branding-logo .at-privacy-icon{display:inline-block;height:10px;width:10px;margin-left:4px;margin-right:3px;margin-bottom:-1px;background-repeat:no-repeat}.at-branding-logo .at-privacy-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAMAAABR24SMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRF8fr9ot/xXcfn2/P5AKva////////AKTWodjhjAAAAAd0Uk5T////////ABpLA0YAAAA6SURBVHjaJMzBDQAwCAJAQaj7b9xifV0kUKJ9ciWxlzWEWI5gMF65KUTv0VKkjVeTerqE/x7+9BVgAEXbAWI8QDcfAAAAAElFTkSuQmCC")}.at-branding-logo span{text-decoration:none}.at-branding-logo .at-branding-addthis,.at-branding-logo .at-branding-powered-by{color:#666}.at-branding-logo .at-branding-addthis:hover{color:#333}.at-cv-with-image .at-branding-addthis,.at-cv-with-image .at-branding-addthis:hover{color:#fff}a.at-branding-logo:visited{color:initial}.at-branding-info{display:inline-block;padding:0 5px;color:#666;border:1px solid #666;border-radius:50%;font-size:10px;line-height:9pt;opacity:.7;transition:all .3s ease;text-decoration:none}.at-branding-info span{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.at-branding-info:before{content:'i';font-family:Times New Roman}.at-branding-info:hover{color:#0780df;border-color:#0780df}</style><script src="./theme-xcode.js"></script><script src="./mode-python.js"></script><script type="text/javascript" charset="utf-8" async="" src="./menu.c5b6a06ac26220a0f224.js"></script><script type="text/javascript" charset="utf-8" async="" src="./floating-css.1622423af3db6f04ea19.js"></script><script type="text/javascript" charset="utf-8" async="" src="./381.ff10509ab10d7cd5535f.js"></script><style id="ace-xcode">.ace-xcode .ace_gutter {background: #e8e8e8;color: #333}.ace-xcode .ace_print-margin {width: 1px;background: #e8e8e8}.ace-xcode {background-color: #FFFFFF;color: #000000}.ace-xcode .ace_cursor {color: #000000}.ace-xcode .ace_marker-layer .ace_selection {background: #B5D5FF}.ace-xcode.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #FFFFFF;}.ace-xcode .ace_marker-layer .ace_step {background: rgb(198, 219, 174)}.ace-xcode .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #BFBFBF}.ace-xcode .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.071)}.ace-xcode .ace_gutter-active-line {background-color: rgba(0, 0, 0, 0.071)}.ace-xcode .ace_marker-layer .ace_selected-word {border: 1px solid #B5D5FF}.ace-xcode .ace_constant.ace_language,.ace-xcode .ace_keyword,.ace-xcode .ace_meta,.ace-xcode .ace_variable.ace_language {color: #C800A4}.ace-xcode .ace_invisible {color: #BFBFBF}.ace-xcode .ace_constant.ace_character,.ace-xcode .ace_constant.ace_other {color: #275A5E}.ace-xcode .ace_constant.ace_numeric {color: #3A00DC}.ace-xcode .ace_entity.ace_other.ace_attribute-name,.ace-xcode .ace_support.ace_constant,.ace-xcode .ace_support.ace_function {color: #450084}.ace-xcode .ace_fold {background-color: #C800A4;border-color: #000000}.ace-xcode .ace_entity.ace_name.ace_tag,.ace-xcode .ace_support.ace_class,.ace-xcode .ace_support.ace_type {color: #790EAD}.ace-xcode .ace_storage {color: #C900A4}.ace-xcode .ace_string {color: #DF0002}.ace-xcode .ace_comment {color: #008E00}.ace-xcode .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==) right repeat-y}
+/*# sourceURL=ace/css/ace-xcode */</style><style type="text/css">.addthis_bar_vertical_medium{position:absolute;background:#fff;padding:5px;text-align:center;z-index:20000;width:36px}.addthis_bar_vertical_medium a{margin-bottom:4px}.addthis_bar_vertical_small{position:absolute;background:#fff;padding:5px;text-align:center;z-index:20000;width:20px}.addthis_bar_vertical_small a{margin-bottom:4px}.addthis_bar_vertical_large{position:absolute;background:#fff;padding:5px;text-align:center;z-index:20000;width:60px}.addthis_bar_vertical_large a{margin-bottom:4px}.addthis_bar{background:#2b2b2b;background-image:linear-gradient(top,#5f5f5f,#0a0a0a);background-image:-webkit-linear-gradient(#5f5f5f,#0a0a0a);background-image:-ms-linear-gradient(top,#5f5f5f,#0a0a0a);position:fixed;_position:absolute;top:0;left:0;right:0;min-height:1pc;margin:0;padding:10px 20px;text-align:center;font-family:arial,helvetica,sans-serif;font-size:9pt;color:#fff;z-index:200000}.addthis_floating_style.at-floatingbar-inner{position:relative}.addthis_floating_style span{line-height:1pc}.addthis_floating_style.addthis_16x16_style{padding-bottom:0;line-height:20px;font-size:9pt}.addthis_floating_style.addthis_16x16_style .at-floatingbar-share{margin:0 auto}.addthis_floating_style.addthis_16x16_style .at-floatingbar-close{top:6px}.addthis_floating_style.addthis_32x32_style{line-height:2pc;font-size:14px}.addthis_floating_style.addthis_32x32_style .at-floatingbar-share{margin:0 auto}.addthis_floating_style.addthis_32x32_style .at-floatingbar-close{top:1pc}.addthis_floating_style.addthis_counter_style{padding-bottom:4px;line-height:1pc;font-size:14px}.addthis_floating_style.addthis_counter_style .addthis_counter{padding-left:3px}.addthis_floating_style.addthis_counter_style .at-floatingbar-share{margin:0 auto}.addthis_floating_style.addthis_counter_style .addthis_internal_container span{display:inline-block;margin-right:8px;float:left}.addthis_floating_style.addthis_counter_style .addthis_internal_container span:first-child,.addthis_floating_style.addthis_counter_style .addthis_internal_container span:last-child{margin-right:0}.addthis_floating_style.addthis_counter_style .at-floatingbar-close{top:28px}.addthis_bar .at-floatingbar-share{position:relative}.addthis_bar .addthis_internal_container{float:left}.addthis_bar label{display:inline-block;margin-right:20px;float:left}.addthis_bar .at-floatingbar-close{position:absolute;right:20px;display:block;background:url(//s7.addthis.com/static/t00/xsprite00.png) no-repeat 0 0;width:24px;height:20px;line-height:24px;text-indent:-9999px;overflow:hidden;cursor:pointer}.addthis_floating_style{position:fixed;_position:absolute;background:#fff;padding:5px;text-align:center;border-radius:8px;-moz-border-radius:8px;-webkit-border-radius:8px;z-index:1}.addthis_floating_style .at300b,.addthis_floating_style .at300bo,.addthis_floating_style .at300m{padding:0 2px}.addthis_floating_style .addthis_native_counter_parent{clear:both}.addthis_floating_style .addthis_native_counter_sibling{float:left}.addthis_floating_style .addthis_counter.addthis_bubble_style.addthis_native_counter{margin:0 2px;display:none}.addthis_floating_style .at300b>*,.addthis_floating_style .at300bo>*,.addthis_floating_style .at300m>*{margin-bottom:5px}.addthis_floating_style .at300b #___plusone_0,.addthis_floating_style .at300bo #___plusone_0,.addthis_floating_style .at300m #___plusone_0{margin-bottom:10px!important}.addthis_floating_style.addthis_counter_style,.addthis_floating_style.addthis_counter_style .addthis_internal_container{width:60px}.addthis_floating_style.addthis_counter_style span{display:inline-block;margin-bottom:4px}.addthis_floating_style.addthis_32x32_style,.addthis_floating_style.addthis_32x32_style .addthis_internal_container{width:36px}.addthis_floating_style.addthis_16x16_style,.addthis_floating_style.addthis_16x16_style .addthis_internal_container{width:20px}.addthis_floating_style.addthis_16x16_style.native-counter,.addthis_floating_style.addthis_16x16_style.native-counter .addthis_internal_container,.addthis_floating_style.addthis_20x20_style.native-counter,.addthis_floating_style.addthis_20x20_style.native-counter .addthis_internal_container,.addthis_floating_style.addthis_32x32_style.native-counter,.addthis_floating_style.addthis_32x32_style.native-counter .addthis_internal_container,.addthis_floating_style.native-counter,.addthis_floating_style.native-counter .addthis_internal_container{width:auto}.addthis_floating_style a,.addthis_floating_style.addthis_16x16_style a,.addthis_floating_style.addthis_20x20_style a,.addthis_floating_style.addthis_32x32_style a{margin-bottom:4px;display:block}.addthis_floating_style.atf-collapsed{right:10px;left:auto;width:24px;height:28px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;-moz-border-radius-bottomright:4px;-moz-border-radius-bottomleft:4px;-webkit-border-bottom-right-radius:4px;-webkit-border-bottom-left-radius:4px;padding:5px}.addthis_floating_style.atf-collapsed .at-floatingbar-close{background-position:0 -24px}.addthis_floating_style.atf-collapsed .at-floatingbar-open{right:5px}</style></head>
+<body id="embed_content_python" data-no-metrics="false" class="mode-standard  remixable" data-is-mobile="false" marginwidth="0" marginheight="0">
+  <input id="whoami" type="hidden" value="ethanchewy">
+  
+  <input id="user" type="hidden" value="57845566db48f36506ba4049">
+  
+  <input id="roles" type="hidden" value="d0dc04eb5433d01778e88b705de79a09+U2FsdGVkX1/dUeL+4vkTka/4gujy25ICrZWK0XRIdB0zIgzPovIyWWX3Gqh5TmLg9+NtNRqu0+Rgmitgy77vCZmLa9H1jlsrGE77LZe3eRWihxMFVoAk3G1v/y1IIc6EKovJL5rQy4K2lGnKUCY8YCkLOVkhvBCf7Q0Jzq7V8YdnUBKx6JLF3r5BDToDTD5TowE8t5UT8M71mNVcPKBU6tK86VG8/rBB3nt7fLTJF4yF2eQx3VPlb+7ud+d2CgXO+fgUGEfFftxzSYKZ7ca6XQ==">
+  
+  <script>
+    trinketObject = {"id":"538012d3a6554c7945027aab","code":"import pygal\n\n# http://blog.codeeval.com/codeevalblog/2014\n# most popular coding languages according to @codeeval\n# python for the win! w00t!\n\ndata = [\n  [&quot;Python&quot;, 30.3],\n  [&quot;Java&quot;, 22.2],\n  [&quot;C++&quot;, 13],\n  [&quot;Ruby&quot;, 10.6],\n  [&quot;Javascript&quot;, 5.2],\n  [&quot;C#&quot;, 5],\n  [&quot;C&quot;, 4.1],\n  [&quot;PHP&quot;, 3.3],\n  [&quot;Perl&quot;, 1.6],\n  [&quot;Go&quot;, 1.5],\n  [&quot;Haskell&quot;, 1.2],\n  [&quot;Scala&quot;, 1],\n  [&quot;Objective-C&quot;, 0.4],\n  [&quot;Clojure&quot;, 0.2],\n  [&quot;Bash&quot;, 0.1],\n  [&quot;Lua&quot;, 0.04],\n  [&quot;TCL&quot;, 0.03]\n]\n    \n\n# Make a Pygal chart\npie_chart = pygal.Pie()\n\n# add a title\npie_chart.title = &quot;CodeEval Most Popular Coding Languages of 2014&quot;\n\n# add the data\nfor label, data_points in data:\n    pie_chart.add(label, data_points)\n\n# Render the chart    \npie_chart.render()\n","lang":"python","name":null,"description":null,"groupId":null,"_parent":"537fadf4e0a8e6644a6a56b1","_origin_id":null,"_owner":null,"hash":"4267c0faf2a7fb910b4904483b6cb01ac327c934","shortCode":"2a713e9b2d","lastUpdated":"2016-07-17T23:06:10.428Z","metrics":{"runs":209025,"linkViews":2987,"linkShares":73,"forks":1412,"embedViews":616999,"embedShares":219,"emailViews":15,"emailShares":16},"lastView":{"viewType":"embedViews","viewedOn":"2016-07-17T23:06:10.426Z","referer":"http://www.skulpt.org/","address":"72.13.133.234"},"snapshot":"https://b47df67e6f4bca4beeb6-ee2b32fdf5f2b1e0d3cd029f976a924b.ssl.cf5.rackcdn.com/2a713e9b2d-1414426780958.png","assets":[],"displayOnly":null,"original":null,"settings":{"testsEnabled":false}};
+    draftObject   = undefined;
+  </script>
+  <input id="shareType" type="hidden" value="python">
+  <input id="proxy" type="hidden" value="https://trinket.io/proxy">
+  <div id="wrapper" class="off-canvas-wrap owner-view row" data-offcanvas="">
+    <div class="trinket-wrapper inner-wrap">
+      <nav id="menu" class="trinket-header" data-interface="top-menu">
+        <section class="left">
+          <div class="icon-bar left-menu-toggle">
+            <a class="item menu-button left-off-canvas-toggle" data-action="menu.options">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+        </section>
+        <section class="left title-bar">
+          <span title="hosted by trinket.io" data-dropdown="brand-menu" aria-controls="brand-menu" aria-expanded="false">
+            <img class="show-for-large-up" src="./trinket-logo.png">
+            <img class="show-for-medium-down" src="./trinket-logo-circles.png">
+          </span>
+          <ul id="brand-menu" class="f-dropdown" data-dropdown-content="" aria-hidden="true" tabindex="-1">
+            <li><a id="brand">View on trinket.io</a></li>
+          </ul>
+          
+          
+        </section>
+        <section class="mode-toolbar left" data-mode="interact">
+          <div class="icon-bar label-right">
+            
+<a class="edit-it menu-button item allow-original show-for-small-only" data-action="code.edit" title="Edit the code.">
+  <i class="fa fa-pencil"></i>
+  <label class="show-for-large-up">Code</label>
+</a>
+<a class="run-it menu-button item button split allow-original attention" data-action="code.run" title="View the result.">
+  <i class="fa fa-play"></i>
+  <label class="show-for-large-up">Run</label>
+  <span data-dropdown="run-options" data-options="align:bottom"></span>
+</a>
+<a class="check-it menu-button item allow-original hide" data-action="code.check" title="Check your code.">
+  <i class="fa fa-check-circle"></i>
+  <label class="show-for-large-up">Check</label>
+</a>
+<a class="menu-button item show-for-medium-up" data-action="code.modules" data-data="open" title="View the supported modules.">
+  <i class="fa fa-question"></i>
+  <label class="show-for-large-up">Modules</label>
+</a>
+
+            
+            <a class="show-for-medium-up button split item menu-button" data-action="sharing.social" data-data=".addthis_button_twitter"><i class="fa fa-twitter"></i><label class="show-for-large-up">Share</label><span data-dropdown="share-options" data-options="align:bottom"></span></a>
+            
+            
+            
+          </div>
+        </section>
+        
+        <section class="mode-indicator right">
+          <div class="icon-bar">
+            <div class="item"><div id="draftMessage" class="hide draft-message"></div></div>
+            
+
+
+
+            
+            <!-- no user, remix if trinket.id, copy if inline -->
+            <a title="Remix this trinket." class="save-it menu-button allow-original ui-option guest-option has-tip item right-off-canvas-toggle  hide" data-action="menu.user">
+              <i class="fa fa-save"></i>
+              <label class="show-for-medium-up">Remix</label>
+            </a>
+            <!-- user, no trinket.id -->
+            <a title="Save a copy of this trinket." class="save-it create-copy menu-button allow-original ui-option user-option owner-option has-tip item" data-action="library.add">
+              <i class="fa fa-save"></i>
+              <label class="show-for-medium-up">Copy</label>
+            </a>
+            <!-- user, trinket.id -->
+            <a title="Remix this trinket." class="save-it create-remix menu-button allow-original ui-option user-option owner-option has-tip item" data-action="library.add">
+              <i class="fa fa-code-fork"></i>
+              <label class="show-for-medium-up">Remix</label>
+            </a>
+            <!-- user, has remix, viewing remix -->
+            <a title="Save changes to your Remix." class="save-it save-remix menu-button allow-original ui-option user-option owner-option has-tip item" data-action="library.add">
+              <i class="fa fa-save"></i>
+              <label class="show-for-medium-up">Save</label>
+            </a>
+            <!-- user, has remix, viewing original -->
+            <a title="Revert your Remix to this Original." class="save-it revert-remix menu-button allow-original ui-option user-option owner-option has-tip item" data-action="library.add">
+              <i class="fa fa-fast-backward"></i>
+              <label class="show-for-medium-up">Restore</label>
+            </a>
+            
+          </div>
+          <div class="remix-switch item">
+            <input type="checkbox" name="remix-switch" class="remix-switch-checkbox" id="version-toggle" checked="">
+            <label class="remix-switch-label" for="version-toggle">
+              <span class="remix-switch-inner"></span>
+              <span class="remix-switch-switch"></span>
+            </label>
+          </div>
+          <div class="icon-bar">
+            <a class="item right-menu-toggle right-off-canvas-toggle menu-button" data-action="menu.user">
+              <i class="fa fa-user ui-option owner-option user-option"></i>
+              <i class="fa fa-sign-in ui-option guest-option hide"></i>
+            </a>
+          </div>
+        </section>
+        
+        <section class="mode-toolbar right hide">
+          <div class="icon-bar">
+            <a id="gallery-item" title="Visit the Trinket User Gallery" class="menu-button has-tip item show-for-medium-up" data-action="view.gallery">
+              <i class="fa fa-th-large"></i>
+              <label class="show-for-medium-up">Gallery</label>
+            </a>
+          </div>
+        </section>
+        <section id="notification-tab" class="hide">
+          <div id="notification-content">
+            <a href="https://trinket.io/hourofcode" target="_blank"><img src="./bannerE.jpg"></a>
+          </div>
+          <div id="notification-container">&nbsp;</div>
+        </section>
+      </nav>
+
+      <aside class="left-off-canvas-menu" data-interface="trinket-menu">
+        <ul class="off-canvas-list mode-menu" data-mode="interact">
+          
+          <li><label>Menu</label></li>
+          
+<li>
+  <a class="menu-button" data-action="code.modules" data-data="open"><i class="fa fa-question"></i>Modules</a>
+</li>
+
+          <li>
+            <a class="reset-it menu-button" data-action="code.reset"><i class="fa fa-refresh"></i>Reset</a>
+          </li>
+          <li>
+            <a class="menu-button" data-action="mode.fullscreen" data-no-analytics="true"><i class="fa fa-expand"></i>Fullscreen</a>
+          </li>
+          
+          <li>
+            <a class="menu-button" data-action="mode.download"><i class="fa fa-download"></i>Download</a>
+          </li>
+          
+          
+          
+          <li><label>Sharing</label></li>
+          <li>
+            <a class="share-it menu-button" data-action="sharing.share"><i class="fa fa-share"></i>Share</a>
+          </li>
+          <li>
+            <a class="embed-it menu-button" data-action="sharing.embed"><i class="fa fa-code"></i>Embed</a>
+          </li>
+          <li>
+            <a class="email-it menu-button" data-action="sharing.email"><i class="fa fa-envelope-o"></i>Email</a>
+          </li>
+          
+          
+          <li><label>Font Size</label></li>
+          <li>
+            <a class="menu-button font-size small-font left" data-action="code.fontsize" data-data="1em">aA</a>
+            <a class="menu-button font-size medium-font left" data-action="code.fontsize" data-data="1.5em">aA</a>
+            <a class="menu-button font-size large-font left" data-action="code.fontsize" data-data="2em">aA</a>
+          </li>
+          
+        </ul>
+      </aside>
+
+      
+      <aside class="right-off-canvas-menu" data-interface="user-menu">
+        <ul id="userMenu" class="off-canvas-list">
+    
+<li><label><i class="fa fa-external-link"></i>Links</label></li>
+<li>
+  <a class="ui-option owner-option hide" href="https://trinket.io/library/trinkets/2a713e9b2d" target="_blank">
+    <i class="fa fa-info-circle"></i>View on trinket
+  </a>
+  <a href="https://trinket.io/library/trinkets" target="_blank">
+    <i class="fa fa-book"></i>My Trinkets
+  </a>
+</li>
+
+  </ul>
+      </aside>
+      
+
+      <section class="trinket-content main-section" data-interface="content">
+        <div id="flashMessage" class="container hide">
+          <div id="flashContent"></div>
+        </div>
+        <div class="trinket-content-wrapper">
+          <div id="content-overlay" class="hide" data-interface="overlay" style="font-size: 1em;"></div>
+          
+  <input id="honeypot" type="text" tabindex="-1" style="font-size: 1em;">
+  <input id="start-value" type="hidden" value="code" style="font-size: 1em;">
+  <input id="runOption-value" type="hidden" value="run" style="font-size: 1em;">
+  <input id="runMode-value" type="hidden" value="" style="font-size: 1em;">
+  <div id="imageAssets" style="font-size: 1em;"></div>
+  <div id="modules" class="hide" data-interface="overlay" style="font-size: 1em;">
+    <a class="menu-button closer" data-action="code.modules" data-data="close"><i class="fa fa-times-circle-o"></i></a>
+  </div>
+
+  <div id="editor" class="code-editor with-info" data-interface="editor" style="font-size: 1em;"><div class="code-editor" data-interface="code-editor"><div class="tab-nav allow-assets"><dl class="left-options"><dd class="tab-button"><a class="tab-scroll-link left-arrow" data-direction="-1"><i class="fa fa-chevron-left"></i></a></dd><dd class="tab-button"><a class="tab-scroll-link right-arrow" data-direction="1"><i class="fa fa-chevron-right"></i></a></dd></dl><dl class="scrollable-content"><dd class="tab permanent active"><a class="file-tab-link"><span class="file-name">main.py</span><span class="tab-options-link menu-button" data-action="file.options"></span></a></dd></dl><dl class="right-options"><dd class="tab-button"><a class="add-file-link menu-button" data-action="file.add"><i class="fa fa-plus"></i></a></dd><dd class="tab"><a class="file-tab-link add-asset-link" data-action="assets.view" title="View and Add Images"><i class="fa fa-file-image-o"></i></a></dd></dl><div class="clearfix"></div></div><div class="file-content-container"><div class="file-content ace_editor active ace-xcode" style="font-size: inherit;"><textarea class="ace_text-input" wrap="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="opacity: 0; height: 16px; width: 7.20125px; left: 0px; top: 0px;"></textarea><div class="ace_gutter"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="margin-top: -11px; height: 293px; width: 48px;"><div class="ace_gutter-cell " style="height: 16px;">24</div><div class="ace_gutter-cell " style="height: 16px;">25</div><div class="ace_gutter-cell " style="height: 16px;">26</div><div class="ace_gutter-cell " style="height: 16px;">27</div><div class="ace_gutter-cell " style="height: 16px;">28</div><div class="ace_gutter-cell " style="height: 16px;">29</div><div class="ace_gutter-cell " style="height: 16px;">30</div><div class="ace_gutter-cell " style="height: 16px;">31</div><div class="ace_gutter-cell " style="height: 16px;">32</div><div class="ace_gutter-cell " style="height: 16px;">33</div><div class="ace_gutter-cell " style="height: 16px;">34</div><div class="ace_gutter-cell " style="height: 16px;">35<span class="ace_fold-widget ace_start ace_open" style="height: 16px;"></span></div><div class="ace_gutter-cell " style="height: 16px;">36</div><div class="ace_gutter-cell " style="height: 16px;">37</div><div class="ace_gutter-cell " style="height: 16px;">38</div><div class="ace_gutter-cell " style="height: 16px;">39</div><div class="ace_gutter-cell " style="height: 16px;">40</div></div><div class="ace_gutter-active-line" style="top: -379px; height: 16px;"></div></div><div class="ace_scroller" style="left: 48px; right: 0px; bottom: 0px;"><div class="ace_content attention" style="margin-top: -11px; width: 483px; height: 293px; margin-left: 0px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 580.1px; visibility: hidden;"></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div class="ace_line" style="height:16px">  <span class="ace_paren ace_lparen">[</span><span class="ace_string">"TCL"</span>, <span class="ace_constant ace_numeric">0.03</span><span class="ace_paren ace_rparen">]</span></div><div class="ace_line" style="height:16px"><span class="ace_paren ace_rparen">]</span></div><div class="ace_line" style="height:16px"><span class="ace_indent-guide">  </span>  </div><div class="ace_line" style="height:16px"></div><div class="ace_line" style="height:16px"><span class="ace_comment"># Make a Pygal chart</span></div><div class="ace_line" style="height:16px"><span class="ace_identifier">pie_chart</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">pygal</span>.<span class="ace_identifier">Pie</span><span class="ace_paren ace_lparen">(</span><span class="ace_paren ace_rparen">)</span></div><div class="ace_line" style="height:16px"></div><div class="ace_line" style="height:16px"><span class="ace_comment"># add a title</span></div><div class="ace_line" style="height:16px"><span class="ace_identifier">pie_chart</span>.<span class="ace_identifier">title</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_string">"CodeEval Most Popular Coding Languages of 2014"</span></div><div class="ace_line" style="height:16px"></div><div class="ace_line" style="height:16px"><span class="ace_comment"># add the data</span></div><div class="ace_line" style="height:16px"><span class="ace_keyword">for</span> <span class="ace_identifier">label</span>, <span class="ace_identifier">data_points</span> <span class="ace_keyword">in</span> <span class="ace_identifier">data</span>:</div><div class="ace_line" style="height:16px"><span class="ace_indent-guide">  </span>  <span class="ace_identifier">pie_chart</span>.<span class="ace_identifier">add</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">label</span>, <span class="ace_identifier">data_points</span><span class="ace_paren ace_rparen">)</span></div><div class="ace_line" style="height:16px"></div><div class="ace_line" style="height:16px"><span class="ace_comment"># Render the chart    </span></div><div class="ace_line" style="height:16px"><span class="ace_identifier">pie_chart</span>.<span class="ace_identifier">render</span><span class="ace_paren ace_lparen">(</span><span class="ace_paren ace_rparen">)</span></div><div class="ace_line" style="height:16px"></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor" style="left: 4px; top: -368px; width: 7.20125px; height: 16px;"></div></div></div></div><div class="ace_scrollbar ace_scrollbar-v" style="width: 20px; bottom: 0px;"><div class="ace_scrollbar-inner" style="width: 20px; height: 640px;"></div></div><div class="ace_scrollbar ace_scrollbar-h" style="height: 20px; left: 48px; right: 0px;"><div class="ace_scrollbar-inner" style="height: 20px; width: 483px;"></div></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; overflow: hidden;"><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; overflow: visible;"></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div></div><div class="file-content fixed-right"><div class="asset-viewer">
+  <div id="asset-viewer-contents" class="contents">
+    <div class="clearfix">
+      <p class="broadcasting-assets-info alert-box warning">
+        Adding or removing images is disabled during broadcasting. You'll be able to update images again once the broadcast session is over.
+      </p>
+    </div>
+
+    <div class="clearfix">
+      <h4 class="left">Images</h4>
+      <a class="button small right" events="click:view.addimage.show"><i class="fa fa-plus"></i> Add Image</a>
+    </div>
+    <p>Images listed here are available to use in your code in this trinket. Click the Add Image button to include more or upload new images.</p>
+
+    <!-- <a class="button small" events="click:view.add-link.show"><i class="fa fa-link">Link</i></a> -->
+
+    <div id="asset-list-wrapper">
+      <div class="howto-container hide" style="display: block;">
+        <dl class="accordion" data-accordion="">
+          <dd class="accordion-navigation">
+            <a href="https://trinket.io/embed/python/538012d3a6554c7945027aab#howto"><i class="fa fa-question-circle"></i> How To Use Images</a>
+            <div id="howto" class="howto-message content">
+            <p>
+      <span>Images can be used with the <code>turtle</code> module.</span>
+      </p><pre><code>import turtle
+screen = turtle.Screen()
+# set the screen background
+screen.bgpic("filename.png")
+
+# Or, set the shape of a turtle
+screen.addshape("filename.png")
+tina = turtle.Turtle()
+tina.shape("filename.png")</code></pre>
+    <p></p></div>
+          </dd>
+        </dl>
+      </div>
+
+      <ul id="trinket-asset-list" class="list-view asset-list" style="display: none;">
+        
+      </ul>
+    </div>
+  </div>
+
+  
+
+  <!--
+  <div class="template overlay" template-id="imageLink">
+    <input type="text" placeholder="paste image url here">
+    <input type="text" placeholder="image name">
+    <input type="button" name="add">
+    <a class="closer"><i class="fa fa-times-circle-o"></i></a>
+  </div>
+  -->
+</div></div></div><div class="info-area collapsed"><div class="info-quick"></div><div class="scroll-wrap"><div class="info-full"></div></div><a class="expander fa"></a></div></div></div>
+
+  <div id="dragbar" style="font-size: 1em;"></div>
+
+  <div id="codeOutput" class="codeOutput hide" data-interface="output" style="font-size: 1em;">
+
+    <div id="outputTabs" class="hideInstructions">
+      <div class="active menu-button" id="codeOutputTab" data-action="output.view">Result</div>
+      <div class="menu-button" id="instructionsTab" data-action="instructions.view"><i class="fa fa-list"></i> Instructions</div>
+    </div>
+
+    <div id="outputContainer" class="withoutTabs">
+      <div id="graphic-wrap" class="hide">
+        <div id="graphic"></div>
+      </div>
+
+      <div id="output-dragbar" class="hide" data-action="resize"></div>
+
+      <div id="console-wrap" class="hide">
+        <div id="console-output"></div>
+        <a id="reset-output" title="clear output"><i class="fa fa-ban"></i></a>
+      </div>
+
+      <div id="unittest-wrap" class="hide">
+  <div id="unittest-output">
+    <div class="row grey collapse">
+      <div class="small-12 column">
+        <p class="text-center overview" id="test-totals"></p>
+      </div>
+    </div>
+    <ul class="accordion" id="unittest-accordion" data-accordion="">
+    </ul>
+    <div class="row grey collapse">
+      <div class="small-12 column">
+        <p class="text-center overview">Powered by <img src="./trinket-logo.png"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <div id="instructionsContainer" class="hide">
+
+  <div id="instructionsOutput"></div>
+</div>
+
+
+  </div>
+
+  <div id="runFirstModal" class="reveal-modal small" data-interface="run-modal" data-reveal="" data-css-top="20" data-offset="200" style="font-size: 1em;">
+    <h2>Run your code first!</h2>
+    <p class="lead">
+      It looks like you haven't tried running your new code.
+    </p>
+    <p>Try clicking
+    <a id="modalRun" class="button tiny" data-action="code.run"><i class="fa fa-play"></i>&nbsp;Run</a>
+    and if you like the result, try sharing again.</p>
+    <a class="close-reveal-modal">×</a>
+  </div>
+  <script id="assets-howto-message" type="text/template" style="font-size: 1em;">
+    <p>
+      <span>Images can be used with the <code>turtle</code> module.</span>
+      <pre><code>import turtle
+screen = turtle.Screen()
+# set the screen background
+screen.bgpic("filename.png")
+
+# Or, set the shape of a turtle
+screen.addshape("filename.png")
+tina = turtle.Turtle()
+tina.shape("filename.png")</code></pre>
+    </p>
+  </script>
+
+        </div>
+      </section>
+      
+      <a class="exit-off-canvas"></a>
+    </div>
+  </div>
+
+  <div id="confirmResetModal" class="reveal-modal medium" data-reveal="" data-css-top="35">
+    <div class="row">
+      <h2 id="modalTitle">Are you sure?</h2>
+      <p class="lead">Resetting will undo all of your current changes.</p>
+      <a class="button caution menu-button allow-original" data-action="code.cancel-reset">Cancel</a>
+      <a class="button danger menu-button allow-original" data-action="code.confirm-reset">Yes, I am sure.</a>
+      <a class="close-reveal-modal" aria-label="Close">×</a>
+    </div>
+  </div>
+  <div id="controlRoomModal" class="reveal-modal large" data-reveal="" data-css-top="35" data-interface="control-room">
+    <p><strong>Broadcast Control Room</strong></p>
+  
+    <a class="close-reveal-modal" aria-label="Close">×</a>
+  </div>
+  
+      <div id="shareModal" class="reveal-modal full" data-reveal="" data-css-top="0" data-offset="0">
+    <div class="row">
+      
+      <div id="addthisModal">
+        <div id="addthisWrapper">
+          <div id="addthis" class="addthis_toolbox addthis_floating_style addthis_32x32_style" addthis:url="https://trinket.io/python/2a713e9b2d"><div class="at-floatingbar-inner"><div class="at-floatingbar-share"><div class="addthis_internal_container">
+            <a class="addthis_button_facebook at300b" title="Facebook" href="https://trinket.io/embed/python/538012d3a6554c7945027aab#"><span class="at-icon-wrapper" style="line-height: 32px; height: 32px; width: 32px; background-color: rgb(59, 89, 152);"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" title="Facebook" alt="Facebook" style="width: 32px; height: 32px;" class="at-icon at-icon-facebook"><g><path d="M22 5.16c-.406-.054-1.806-.16-3.43-.16-3.4 0-5.733 1.825-5.733 5.17v2.882H9v3.913h3.837V27h4.604V16.965h3.823l.587-3.913h-4.41v-2.5c0-1.123.347-1.903 2.198-1.903H22V5.16z" fill-rule="evenodd"></path></g></svg></span></a>
+            <a class="addthis_button_twitter at300b" title="Tweet" href="https://trinket.io/embed/python/538012d3a6554c7945027aab#"><span class="at-icon-wrapper" style="line-height: 32px; height: 32px; width: 32px; background-color: rgb(29, 161, 242);"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" title="Twitter" alt="Twitter" style="width: 32px; height: 32px;" class="at-icon at-icon-twitter"><g><path d="M27.996 10.116c-.81.36-1.68.602-2.592.71a4.526 4.526 0 0 0 1.984-2.496 9.037 9.037 0 0 1-2.866 1.095 4.513 4.513 0 0 0-7.69 4.116 12.81 12.81 0 0 1-9.3-4.715 4.49 4.49 0 0 0-.612 2.27 4.51 4.51 0 0 0 2.008 3.755 4.495 4.495 0 0 1-2.044-.564v.057a4.515 4.515 0 0 0 3.62 4.425 4.52 4.52 0 0 1-2.04.077 4.517 4.517 0 0 0 4.217 3.134 9.055 9.055 0 0 1-5.604 1.93A9.18 9.18 0 0 1 6 23.85a12.773 12.773 0 0 0 6.918 2.027c8.3 0 12.84-6.876 12.84-12.84 0-.195-.005-.39-.014-.583a9.172 9.172 0 0 0 2.252-2.336" fill-rule="evenodd"></path></g></svg></span></a>
+            <a class="addthis_button_google_plusone_share at300b" target="_blank" title="Google+" href="https://trinket.io/embed/python/538012d3a6554c7945027aab#"><span class="at-icon-wrapper" style="line-height: 32px; height: 32px; width: 32px; background-color: rgb(220, 78, 65);"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" title="Google+" alt="Google+" style="width: 32px; height: 32px;" class="at-icon at-icon-google_plusone_share"><g><path d="M12 15v2.4h3.97c-.16 1.03-1.2 3.02-3.97 3.02-2.39 0-4.34-1.98-4.34-4.42s1.95-4.42 4.34-4.42c1.36 0 2.27.58 2.79 1.08l1.9-1.83C15.47 9.69 13.89 9 12 9c-3.87 0-7 3.13-7 7s3.13 7 7 7c4.04 0 6.72-2.84 6.72-6.84 0-.46-.05-.81-.11-1.16H12zm15 0h-2v-2h-2v2h-2v2h2v2h2v-2h2v-2z" fill-rule="evenodd"></path></g></svg></span></a>
+            <a class="addthis_button_linkedin at300b" target="_blank" title="LinkedIn" href="https://trinket.io/embed/python/538012d3a6554c7945027aab#"><span class="at-icon-wrapper" style="line-height: 32px; height: 32px; width: 32px; background-color: rgb(0, 119, 181);"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" title="LinkedIn" alt="LinkedIn" style="width: 32px; height: 32px;" class="at-icon at-icon-linkedin"><g><path d="M26 25.963h-4.185v-6.55c0-1.56-.027-3.57-2.175-3.57-2.18 0-2.51 1.7-2.51 3.46v6.66h-4.182V12.495h4.012v1.84h.058c.558-1.058 1.924-2.174 3.96-2.174 4.24 0 5.022 2.79 5.022 6.417v7.386zM8.23 10.655a2.426 2.426 0 0 1 0-4.855 2.427 2.427 0 0 1 0 4.855zm-2.098 1.84h4.19v13.468h-4.19V12.495z" fill-rule="evenodd"></path></g></svg></span></a>
+            <a class="addthis_button_reddit at300b" target="_blank" title="Reddit" href="https://trinket.io/embed/python/538012d3a6554c7945027aab#"><span class="at-icon-wrapper" style="line-height: 32px; height: 32px; width: 32px; background-color: rgb(255, 87, 0);"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" title="Reddit" alt="Reddit" style="width: 32px; height: 32px;" class="at-icon at-icon-reddit"><g><path d="M27 15.5a2.452 2.452 0 0 1-1.338 2.21c.098.38.147.777.147 1.19 0 1.283-.437 2.47-1.308 3.563-.872 1.092-2.06 1.955-3.567 2.588-1.506.634-3.143.95-4.91.95-1.768 0-3.403-.316-4.905-.95-1.502-.632-2.69-1.495-3.56-2.587-.872-1.092-1.308-2.28-1.308-3.562 0-.388.045-.777.135-1.166a2.47 2.47 0 0 1-1.006-.912c-.253-.4-.38-.842-.38-1.322 0-.678.237-1.26.712-1.744a2.334 2.334 0 0 1 1.73-.726c.697 0 1.29.26 1.78.782 1.785-1.258 3.893-1.928 6.324-2.01l1.424-6.467a.42.42 0 0 1 .184-.26.4.4 0 0 1 .32-.063l4.53 1.006c.147-.306.368-.553.662-.74a1.78 1.78 0 0 1 .97-.278c.508 0 .94.18 1.302.54.36.36.54.796.54 1.31 0 .512-.18.95-.54 1.315-.36.364-.794.546-1.302.546-.507 0-.94-.18-1.295-.54a1.793 1.793 0 0 1-.533-1.308l-4.1-.92-1.277 5.86c2.455.074 4.58.736 6.37 1.985a2.315 2.315 0 0 1 1.757-.757c.68 0 1.256.242 1.73.726.476.484.713 1.066.713 1.744zm-16.868 2.47c0 .513.178.95.534 1.315.356.365.787.547 1.295.547.508 0 .942-.182 1.302-.547.36-.364.54-.802.54-1.315 0-.513-.18-.95-.54-1.31-.36-.36-.794-.54-1.3-.54-.5 0-.93.183-1.29.547a1.79 1.79 0 0 0-.54 1.303zm9.944 4.406c.09-.09.135-.2.135-.323a.444.444 0 0 0-.44-.447c-.124 0-.23.042-.32.124-.336.348-.83.605-1.486.77a7.99 7.99 0 0 1-1.964.248 7.99 7.99 0 0 1-1.964-.248c-.655-.165-1.15-.422-1.486-.77a.456.456 0 0 0-.32-.124.414.414 0 0 0-.306.124.41.41 0 0 0-.135.317.45.45 0 0 0 .134.33c.352.355.837.636 1.455.843.617.207 1.118.33 1.503.366a11.6 11.6 0 0 0 1.117.056c.36 0 .733-.02 1.117-.056.385-.037.886-.16 1.504-.366.62-.207 1.104-.488 1.456-.844zm-.037-2.544c.507 0 .938-.182 1.294-.547.356-.364.534-.802.534-1.315 0-.505-.18-.94-.54-1.303a1.75 1.75 0 0 0-1.29-.546c-.506 0-.94.18-1.3.54-.36.36-.54.797-.54 1.31s.18.95.54 1.315c.36.365.794.547 1.3.547z" fill-rule="evenodd"></path></g></svg></span></a>
+            <a class="addthis_button_hackernews at300b" target="_blank" title="Hacker News" href="https://trinket.io/embed/python/538012d3a6554c7945027aab#"><span class="at-icon-wrapper" style="line-height: 32px; height: 32px; width: 32px; background-color: rgb(255, 102, 0);"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" title="Hacker News" alt="Hacker News" style="width: 32px; height: 32px;" class="at-icon at-icon-hackernews"><g><path d="M17.322 18.437V27h-2.725v-8.725L7.5 5h3.238l4.183 8.4s.62 1.24 1.134 2.48c.54-1.186 1.187-2.48 1.187-2.48L21.48 5H24.5l-7.178 13.437z" fill-rule="evenodd"></path></g></svg></span></a>
+          </div></div></div><div class="atclear"></div></div>
+        </div>
+      </div>
+      
+      <div class="small-10 columms">
+        <div class="row">
+          <h2>Share Your Code!</h2>
+        </div>
+        <form>
+          <div class="row">
+            <div class="small-1 columns">
+              <label class="inline" for="url">Link</label>
+            </div>
+            <div class="small-11 columns">
+              <div id="shareUrl" class="faux-input" data-metric="linkShares"></div>
+            </div>
+          </div>
+          
+          <div id="shareRunOption" class="row">
+            <div class="small-12 columns">
+              <fieldset>
+                <legend>Run Options</legend>
+                <select id="runOptionLink" name="runOptionLink" class="runOptions" data-type="shareUrl" data-trinket-shortcode="" data-trinket-runmode="">
+                  <option value="">Allow either Run or Interactive console</option>
+                  <option value="run">Run code only</option>
+                  <option value="console">Interactive console only</option>
+                </select>
+              </fieldset>
+            </div>
+          </div>
+          
+          
+          <div id="shareDisplayOptions" class="row">
+            <div class="small-12 columns">
+              <fieldset>
+                <legend>Link Options</legend>
+                <select id="displayOptionLink" name="displayOptionLink" class="displayOptions" data-type="shareUrl" data-trinket-shortcode="" data-trinket-runmode="">
+                  <option value="">Show code and output side-by-side (smaller screens will only show one at a time)</option>
+                  <option value="outputOnly">Only show output (hide the code)</option>
+                  <option value="toggleCode">Only show code or output (let users toggle between them)</option>
+                </select>
+              </fieldset>
+            </div>
+          </div>
+          
+
+        </form>
+        
+        <div class="row">
+
+<span class="pro-tip"><i class="fa fa-info-circle"></i> pro tip</span>
+ You can always save a copy for yourself by clicking the <i class="fa fa-copy"></i> or <i class="fa fa-code-fork"></i> button in the top bar.
+</div>
+        
+      </div>
+    </div>
+    <a class="close-reveal-modal">×</a>
+  </div>
+  <div id="embedModal" class="reveal-modal full" data-reveal="" data-css-top="0" data-offset="0">
+    <div class="row">
+      <h2>Embed Your Code!</h2>
+    </div>
+    <form>
+      <div class="row">
+        <label for="embedCode">Embed this code on your site</label>
+      </div>
+      <div class="row">
+        <div id="embedCode" class="faux-input textarea" data-metric="embedShares"></div>
+      </div>
+      
+      <div id="embedRunOption" class="row">
+        <div class="small-12 columns">
+          <fieldset>
+            <legend>Run Options</legend>
+            <select id="runOptionEmbed" name="runOptionEmbed" class="runOptions" data-type="embedCode" data-trinket-shortcode="" data-trinket-runmode="">
+              <option value="">Allow either Run or Interactive console</option>
+              <option value="run">Run code only</option>
+              <option value="console">Interactive console only</option>
+            </select>
+          </fieldset>
+        </div>
+      </div>
+      
+      
+      <div id="embedDisplayOptions" class="row">
+        <div class="small-12 columns">
+          <fieldset>
+            <legend>Display Options</legend>
+            <select id="displayOptionEmbed" name="displayOptionEmbed" class="displayOptions" data-type="embedCode" data-trinket-shortcode="" data-trinket-runmode="">
+              <option value="">Show code and output side-by-side (smaller screens will only show one at a time)</option>
+              <option value="outputOnly">Only show output (hide the code)</option>
+              <option value="toggleCode">Only show code or output (let users toggle between them)</option>
+            </select>
+            
+            <input type="checkbox" id="autorunEmbedToggle" name="autorunEmbed" class="autorunToggle" value="embedCode"><label for="autorunEmbedToggle">Auto run trinket when loaded</label>
+            
+          </fieldset>
+        </div>
+      </div>
+      
+    </form>
+    
+    <div class="row">
+
+<span class="pro-tip"><i class="fa fa-info-circle"></i> pro tip</span>
+ You can always save a copy for yourself by clicking the <i class="fa fa-copy"></i> or <i class="fa fa-code-fork"></i> button in the top bar.
+</div>
+    
+    <a class="close-reveal-modal">×</a>
+  </div>
+  <div id="emailModal" class="reveal-modal full" data-reveal="" data-css-top="0" data-offset="0">
+    <div class="row">
+      <h2>Email the link</h2>
+    </div>
+    <form id="emailModalForm" data-trinket-id="">
+      <div class="row">
+        <div class="small-12 medium-4 large-2 columns">
+          <label class="inline" for="share-email">Send To</label>
+        </div>
+        <div class="small-12 medium-8 large-10 columns">
+          <input type="email" id="share-email" name="email" placeholder="What email address should we send the link to?" required="">
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 medium-4 large-2 columns">
+          <label class="inline" for="share-yourname">Your Name</label>
+        </div>
+        <div class="small-12 medium-8 large-10 columns">
+          <input type="text" id="share-yourname" name="yourname" placeholder="What is your name?" required="">
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 medium-4 large-2 columns">
+          <label class="inline" for="share-youremail">Your Email</label>
+        </div>
+        <div class="small-12 medium-8 large-10 columns">
+          <input type="text" id="share-youremail" name="youremail" value="17chiue@gmail.com" placeholder="Your email address - so the recipient can reply to you">
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 medium-6 large-3 columns">
+          <input id="emailToken" name="emailToken" type="hidden" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzaG9ydENvZGUiOiIyYTcxM2U5YjJkIiwiaWF0IjoxNDY4Nzk2NzcwfQ.IwHAtu0ynp3n_x8uzZ2MuodlcfqKqH4N6nJB5jw19Ps">
+          <input id="sendEmail" class="button success small" type="submit" value="Send">
+        </div>
+        <div id="emailAlert" class="small-12 medium-6 columns end hide"></div>
+      </div>
+    </form>
+    
+    <div class="row">
+
+<span class="pro-tip"><i class="fa fa-info-circle"></i> pro tip</span>
+ You can always save a copy for yourself by clicking the <i class="fa fa-copy"></i> or <i class="fa fa-code-fork"></i> button in the top bar.
+</div>
+    
+    <a class="close-reveal-modal">×</a>
+  </div>
+
+<div id="addToGroupModal" class="shared-modal reveal-modal full" data-reveal="" data-css-top="0" data-offset="0">
+  <div class="row">
+    <div id="add-to-group-messages"></div>
+    <h2>Add to Group</h2>
+  </div>
+  <div class="row">
+    <div class="medium-12 large-6 columns">
+      <section id="have-groups" class="hide">
+        <p>Decide which group to add this trinket below.</p>
+        <ul id="groups-list"></ul>
+      </section>
+      <section id="no-groups" class="hide">
+        <p>You don't have any groups that you can add a trinket to — try creating a new one!</p>
+      </section>
+    </div>
+    <div class="medium-12 large-6 columns">
+      <p>You can also create a new group.</p>
+      <form>
+        <div class="row">
+          <div class="small-12 columns">
+            
+              <label>What's the Group name?</label>
+              <input type="text" name="name" placeholder="e.g. Introduction to Python" value="" required="">
+
+              <label>What Description should show up on the page?</label>
+              <textarea name="description" rows="2" placeholder="What other information will group members need to know about this group?" required=""></textarea>
+
+              <label>Group code to let others join.</label>
+              <div class="faux-input" id="joinCode"></div>
+              <input type="hidden" name="joinCode" value="">
+
+              <a id="createGroupAddTrinket" data-trinket-id="" class="button success tiny"><i></i> Create Group</a>
+            
+          </div>
+        </div></form>
+      
+    </div>
+  </div>
+  <a class="close-reveal-modal">×</a>
+</div>
+
+  
+  <div id="upgradeModal" class="reveal-modal full" data-reveal="" data-css-top="0" data-offset="0">
+  </div>
+  
+  <div id="settingsModal" class="reveal-modal medium" data-reveal="" data-interface="settings" data-css-top="35">
+    <h2>Settings</h2>
+    <div class="switch round left">
+      <input id="testsEnabled" type="checkbox" name="testsEnabled" data-trinket-settings="" data-settings-action="toggleCheckButton">
+      <label for="testsEnabled"></label>
+    </div>
+    <h5 class="left">Enable Tests</h5>
+  </div>
+
+  <div id="content-overlay" class="hide"></div>
+  <ul id="share-options" class="f-dropdown" data-dropdown-content="">
+    <li><a class="menu-button" data-action="sharing.social" data-data=".addthis_button_twitter"><i class="fa fa-twitter"></i>Twitter</a></li>
+    <li><a class="menu-button" data-action="sharing.social" data-data=".addthis_button_facebook"><i class="fa fa-facebook-square"></i>Facebook</a></li>
+    <li><a class="menu-button" data-action="sharing.social" data-data=".addthis_button_google_plusone_share"><i class="fa fa-google-plus"></i>Google+</a></li>
+    <li><a class="menu-button" data-action="sharing.email"><i class="fa fa-envelope"></i>Email</a></li>
+    <li><a class="menu-button" data-action="sharing.share"><i class="fa fa-link"></i>Link</a></li>
+    <li><a class="menu-button" data-action="sharing.embed"><i class="fa fa-code"></i>Embed</a></li>
+  </ul>
+  <ul id="group-share-options" class="f-dropdown" data-dropdown-content="">
+    <li><a class="menu-button" data-action="sharing.group"><i class="fa fa-users"></i>with Group</a></li>
+  </ul>
+  
+<ul id="run-options" class="f-dropdown" data-dropdown-content="">
+  <li><a class="menu-button" data-action="code.run" data-button="run"><i class="fa fa-play"></i>Run</a></li>
+  <li><a class="menu-button" data-action="code.console" data-button="console"><i class="fa fa-terminal"></i>Console</a></li>
+</ul>
+
+  <!-- the response-indicator divs allow javascript to determine which responsive size is being applied -->
+  <div class="responsive-indicator show-for-small-only" data-size="small"></div>
+  <div class="responsive-indicator show-for-medium-only" data-size="medium"></div>
+  <div class="responsive-indicator show-for-large-up" data-size="large"></div>
+  <script id="restoreOriginalModalTemplate" type="text/html">
+    <div id="restoreOriginalModal" class="reveal-modal medium" data-reveal data-css-top="35">
+      <h2 id="modalTitle">Reset to the original?</h2>
+      <p class="lead">Resetting will undo all of your current changes.</p>
+      <a class="button small caution" data-action="reject">No, keep my remix.</a>
+      <a class="button small danger" data-action="confirm">Yes, reset to the original.</a>
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+  </script>
+
+  <script id="unittest-error" type="text/template">
+    <li class="accordion-navigation">
+    <a href="#panel-{{testNumber}}">
+      <div class="row really-wrong">
+        <div class="small-9 column">
+          <p><i class="fa fa-angle-right fa-lg open-close-indicator"></i>{{shortDescription}}</p>
+        </div>
+        <div class="small-3 column">
+        <p class="text-center"><i class="fa fa-circle-o fa-lg"></i></p>
+        </div>
+      </div>
+    </a>
+    <div id="panel-{{testNumber}}" class="content">
+      <p>
+        <strong>Message:</strong> <pre>{{reason}}</pre>
+      </p>
+    </div>
+    </li>
+  </script>
+
+  <script id="unittest-fail" type="text/template">
+    <li class="accordion-navigation">
+    <a href="#panel-{{testNumber}}">
+      <div class="row really-wrong">
+        <div class="small-1 column text-centered">
+          <p><i class="fa fa-angle-right fa-lg open-close-indicator"></i></p>
+        </div>
+        <div class="small-9 column">
+          <p>{{shortDescription}}</p>
+        </div>
+        <div class="small-2 column">
+        <p class="text-center"><i class="fa fa-circle-o fa-lg"></i></p>
+        </div>
+      </div>
+    </a>
+    <div id="panel-{{testNumber}}" class="content">
+      <p>
+        <strong>Description:</strong> {{description}}
+      </p>
+      <p>
+        <strong>Message:</strong> {{reason}}
+      </p>
+    </div>
+    </li>
+  </script>
+
+  <script id="unittest-pass" type="text/template">
+    <li class="accordion-navigation">
+    <a href="#panel-{{testNumber}}">
+      <div class="row really-right">
+        <div class="small-1 column text-centered">
+          <p><i class="fa fa-angle-right fa-lg open-close-indicator"></i></p>
+        </div>
+        <div class="small-9 column">
+          <p>{{shortDescription}}</p>
+        </div>
+        <div class="small-2 column">
+        <p class="text-center"><i class="fa fa-check-circle fa-lg"></i></p>
+        </div>
+      </div>
+    </a>
+    <div id="panel-{{testNumber}}" class="content">
+      <p>
+        <strong>Description:</strong> {{description}}
+      </p>
+    </div>
+    </li>
+  </script>
+  <script id="statusMessageTemplate" type="text/html">
+    <div id="statusMessages" data-inteface="alert" data-alert class="alert-box {{type}}">
+      <div>{{message}}</div>
+      <a href="#" title="Close message" class="close"><i class="fa fa-times-circle"></i></a>
+    </div>
+  </script>
+  <script id="guestMenuTemplate" type="text/html">
+    <li>
+      <form id="accountForm">
+        <span class='message hide'></span>
+        <input name="email"    type='email'    placeholder="Email"    required>
+        <input name="password" type='password' placeholder="Password" required>
+        <a id="login"    name="login"    class='button secondary small' data-action="login">Log In</a>
+        <a id="register" name="register" class='button primary small'   data-action="signup">Create Account</a>
+      </form>
+    </li>
+  </script>
+  
+  <script id="ownerMenuTemplate" type="text/html">
+    <li><label>Options</label></li>
+    <li>
+      <a data-mode="interact" class="right-menu-link menu-button" data-action="code.save">
+        <i class="fa fa-save"></i>Update Original
+      </a>
+    </li>
+    
+<li><label><i class="fa fa-external-link"></i>Links</label></li>
+<li>
+  <a class="ui-option owner-option" href="/library/trinkets/2a713e9b2d" target="_blank">
+    <i class="fa fa-info-circle"></i>View on trinket
+  </a>
+  <a href="/library/trinkets" target="_blank">
+    <i class="fa fa-book"></i>My Trinkets
+  </a>
+</li>
+
+  </script>
+  <script id="upgradeTemplate" type="text/html">
+    <div class="row">
+      <h2>{{trinket_type}} Now Available!</h2>
+    </div>
+    <!-- TODO: if/when other products are available, this paragraph needs to be configurable -->
+    <div class="row">
+      <p>
+        This is a Python 3 trinket. It includes everything in
+        <a href="https://www.python.org/download/releases/3.4.0/" target="_blank">Python 3.4 <sup><i class="fa fa-external-link"></i></sup></a>
+        as well as scientific libraries like <a href="http://www.scipy.org/" target="_blank">Numpy and SciPy <sup><i class="fa fa-external-link"></i></sup></a>
+        and <a href="http://matplotlib.org/" target="_blank">matplotlib <sup><i class="fa fa-external-link"></i></sup></a>,
+        with more on the way.
+      </p>
+    </div>
+    <div class="row">
+      <p>
+        <a class="menu-button" data-href="/payment" data-action="open.link">Upgrade</a> to Trinket Connect now to create your own Python 3 trinkets!
+        Learn more on our <a class="menu-button" data-href="/plans" data-action="open.link">plans page</a>.
+        We offer a 30-day money back guarantee and you can cancel at any time.
+      </p>
+    </div>
+    <a class="close-reveal-modal">&#215;</a>
+  </script>
+  <script id="draftTextTemplate" type="text/html">
+    <a class="menu-button" data-action="code.reset" title="Reset"><i class="fa fa-refresh"></i></a> {{draftText}}
+  </script>
+  <script id="addInstructionsTemplate" type="text/html">
+    <p>Click the pencil icon to add instructions to your trinket. When anyone else views this trinket, they'll also be able to view them.</p>
+  </script>
+  <script id="editInstructionsTemplate" type="text/html">
+    <div id="embedded-instructions"></div>
+  </script>
+  <script src="./localStorage.min.js" type="text/javacript"></script>
+  <script src="./jszip.min.js" type="text/javascript"></script>
+  <script src="./jszip-utils.min.js" type="text/javascript"></script>
+  <!--[if IE]>
+  <script src="/cache-prefix-1468796770435dist/jszip-utils-ie.min.js" type="text/javascript"></script>
+  <![endif]-->
+  <script src="./FileSaver.js" type="text/javascript"></script>
+  <script src="./lodash.min.js" type="text/javascript"></script>
+  <script src="./moment.min.js" type="text/javascript"></script>
+  
+  
+  <script src="./sockjs.min.js"></script>
+  <script type="text/javascript" src="./ace.js"></script>
+  <script type="text/javascript" src="./ext-modelist.js"></script>
+  <script type="text/javascript" src="./ext-language_tools.js"></script>
+  <script type="text/javascript" src="./diff_match_patch.js"></script>
+  <script type="text/javascript" src="./dropzone.min.js"></script>
+  <script type="text/javascript" src="./rangeslider.min.js"></script>
+  <script src="./socket.io-1.4.4.js"></script>
+  
+  <script type="text/javascript" src="./361592c4-skulpt.min.js"></script>
+  <script type="text/javascript" src="./361592c4-skulpt-stdlib.js"></script>
+  
+  <script src="./marked.js"></script>
+  <script src="./highlight.min.js"></script>
+  <script src="./trinket-config.js"></script>
+  <script src="./trinket-markdown.js"></script>
+  
+  <script type="text/javascript">
+    window.trinketSocketConfig = {
+      protocol   : 'https'
+      , port     : ''
+      , hostname : 'pysocket.trinket.io'
+      , autocompletePath : '/autocomplete'
+    };
+  </script>
+  
+  <script src="./embed-python-686f9ee5.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    window.trinketBroadcast = {
+        token      : 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0aW1lc3RhbXAiOjE0Njg3OTY3NzAyNjcsInVzZXJOYW1lIjoiZXRoYW5jaGV3eSIsInVzZXJJZGVudGlmaWVyIjoiNTc4NDU1NjZkYjQ4ZjM2NTA2YmE0MDQ5IiwiY2FuU3RhcnRCcm9hZGNhc3QiOmZhbHNlLCJpYXQiOjE0Njg3OTY3NzB9.GNffahyasrq7y4BeafWRyCr030JmJ75Joxy_vXALjec'
+      , connection : TrinketIO.import('trinket.broadcast.connection')
+    };
+  </script>
+
+  
+  
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 970987464;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<div style="display:none">
+<script type="text/javascript" src="./conversion.js">
+</div>
+</script><iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="./saved_resource.html" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></iframe>
+<noscript>
+&lt;div style="display:inline;"&gt;
+&lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/970987464/?value=0&amp;amp;guid=ON&amp;amp;script=0"/&gt;
+&lt;/div&gt;
+</noscript>
+  
+
+  
+  
+<script src="./oct.js" type="text/javascript"></script>
+    
+      
+  
+<script type="text/javascript">
+twttr.conversion.trackPid('l4kgy', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
+<noscript>
+&lt;img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=l4kgy&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" /&gt;
+&lt;img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=l4kgy&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" /&gt;</noscript>
+  
+
+    
+    
+  
+
+  
+
+<script type="text/javascript" src="./addthis_widget.js"></script>
+<script type="text/javascript">
+  var addthis_config = {
+    "data_track_addressbar" : true
+    , "data_ga_property"    : "UA-46899028-1"
+    , "data_ga_social"      : true
+    , "pubid"               : "ra-5344021135dae100"
+  };
+  var addthis_share = {
+    passthrough : {
+      twitter : {
+        related : 'trinketapp,hauspoor',
+        text : 'Check out this awesome runnable # Trinket! #TeachWithCode'
+      }
+    },
+    url_transforms : {
+      shorten : {
+        twitter : 'bitly'
+      }
+    },
+    shorteners : {
+      bitly : {}
+    }
+  };
+  $(document).ready(function() {
+    addthis.init();
+  });
+</script>
+
+
+
+
+</div><script src="./adsct"></script><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; top: -9999px; z-index: 100000;"><iframe id="_atssh214" title="AddThis utility frame" src="./sh.5db545155503ce07aedcd166.html" style="height: 1px; width: 1px; position: absolute; top: 0px; z-index: 100000; border: 0px; left: 0px;"></iframe></div><style id="service-icons-0"></style><div class="tab-options"><ul><li><a class="file-remove-link menu-button" data-action="file.remove"><i class="fa fa-trash"></i></a></li><li><a class="file-rename-link menu-button" data-action="file.rename"><i class="fa fa-pencil"></i></a></li></ul></div><div class="editor-tooltip" style="display: none;"></div></body></html>
