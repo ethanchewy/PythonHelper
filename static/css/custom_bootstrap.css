@@ -3,8 +3,14 @@ Edited by Ethan Chiu */
 
 body {
     padding-top: 60px;
-    background-color: #FFFDE7;;
+    background-color: #FFFDE7;
+    color:#82B1FF;
+    font-family: 'Raleway', sans-serif;
 }
+h1{
+    font-family: 'Raleway', sans-serif;
+}
+
 
 pre {
     margin: 0 0 1em;
@@ -169,7 +175,7 @@ button.btn, btn.btn-sm,
 input[type="submit"].btn.btn-sm,
 input[type="button"].btn.btn-sm {
     font-size: 1em;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 .btn {
@@ -287,7 +293,7 @@ div.flash {
     background-image: -moz-linear-gradient(90deg, #222, #000);
     background-image: linear-gradient(top, #222, #000);
     background-repeat: repeat-x;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;
     -webkit-font-smoothing: antialiased;
     z-index: 2000;
 }
@@ -694,4 +700,9 @@ span.caption-text {
 }
 .ac_caption, .ac_caption_text{
     visibility:hidden;
+}
+.cm-s-default {
+    -webkit-box-shadow: 1px 1px 3px 1px rgba(255,249,196,1);
+    -moz-box-shadow: 1px 1px 3px 1px rgba(255,249,196,1);
+    box-shadow: 1px 1px 3px 1px rgba(255,249,196,1);
 }
