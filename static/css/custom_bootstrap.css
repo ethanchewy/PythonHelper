@@ -3,7 +3,7 @@ Edited by Ethan Chiu */
 
 body {
     padding-top: 60px;
-    background-color: #82B1FF;;
+    background-color: #FFFDE7;;
 }
 
 pre {
@@ -689,6 +689,9 @@ span.caption-text {
     font-size: large;
 }
 .alert-warning{
-    background-color:#82B1FF;
+    background-color:#FFFDE7;
     border:none;
+}
+.ac_caption, .ac_caption_text{
+    visibility:hidden;
 }

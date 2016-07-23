@@ -1,5 +1,6 @@
 /**
  * Created by bmiller on 3/19/15.
+ Edited by ethanchewy on 7/23/16.
  */
 
 var isMouseDown = false;
