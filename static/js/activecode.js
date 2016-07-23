@@ -200,7 +200,7 @@ ActiveCode.prototype.createControls = function () {
     }
 
 
-    $(this.outerDiv).prepend(ctrlDiv);
+    $(this.outerDiv).append(ctrlDiv);
     this.controlDiv = ctrlDiv;
 
 };
