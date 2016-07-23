@@ -706,3 +706,6 @@ span.caption-text {
     -moz-box-shadow: 1px 1px 3px 1px rgba(255,249,196,1);
     box-shadow: 1px 1px 3px 1px rgba(255,249,196,1);
 }
+footer{
+    color:gray;
+}
