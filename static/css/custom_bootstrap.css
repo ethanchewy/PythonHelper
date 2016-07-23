@@ -702,9 +702,9 @@ span.caption-text {
     visibility:hidden;
 }
 .cm-s-default {
-    -webkit-box-shadow: 1px 1px 3px 1px rgba(255,249,196,1);
-    -moz-box-shadow: 1px 1px 3px 1px rgba(255,249,196,1);
-    box-shadow: 1px 1px 3px 1px rgba(255,249,196,1);
+    -webkit-box-shadow: 2px 2px 8px 2px rgba(255,249,196,1);
+    -moz-box-shadow: 2px 2px 8px 2px rgba(255,249,196,1);
+    box-shadow: 2px 2px 8px 2px rgba(255,249,196,1);
 }
 footer{
     color:gray;
