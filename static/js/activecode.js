@@ -106,8 +106,8 @@ ActiveCode.prototype.createEditor = function (index) {
     // give the user a visual cue that they have changed but not saved
     editor.on('change', (function () {
         if (editor.acEditEvent == false || editor.acEditEvent === undefined) {
-            $(editor.getWrapperElement()).css('border-top', '2px solid #b43232');
-            $(editor.getWrapperElement()).css('border-bottom', '2px solid #b43232');
+            $(editor.getWrapperElement()).css('border', '5px solid #E57373');
+            $(editor.getWrapperElement()).css('box-shadow', '1px 1px 4px 1px #F44336');
             this.logBookEvent({'event': 'activecode', 'act': 'edit', 'div_id': this.divid});
     }
         editor.acEditEvent = true;
