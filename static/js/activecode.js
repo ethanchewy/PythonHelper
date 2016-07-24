@@ -91,6 +91,7 @@ ActiveCode.prototype.createEditor = function (index) {
     this.containerDiv.appendChild(codeDiv);
     var editor = CodeMirror(codeDiv, {value: this.code, lineNumbers: true,
         mode: this.containerDiv.lang, indentUnit: 4,
+        gutters: ["CodeMirror-lint-markers"],
         matchBrackets: true, autoMatchParens: true,
         extraKeys: {"Tab": "indentMore", "Shift-Tab": "indentLess"}
     });

@@ -709,6 +709,9 @@ span.caption-text {
 footer{
     color:white;
 }
+a{
+    color:blue;
+}
 footer a{
     color:white;
 }
