@@ -707,5 +707,8 @@ span.caption-text {
     box-shadow: 1px 1px 4px 1px #EEEEEE;
 }
 footer{
-    color:gray;
+    color:white;
+}
+footer a{
+    color:white;
 }
