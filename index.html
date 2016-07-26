@@ -50,7 +50,7 @@
     <div class="row" id="core">
     	<div class="col-sm-8">
     		<h3>Text Editor</h3>
-			<textarea id="code" data-component="activecode" id=ac_example1 data-lang="python"    data-timelimit=25000  data-codelens="false" data-audio=''     data-caption='Converting Temperature from Celsius to Farenheit'>
+  			<textarea id="code" data-component="activecode" id=ac_example1 data-lang="python"    data-timelimit=25000  data-codelens="false" data-audio=''     data-caption='factorial'>
 def factorial(n):
   return 1 if (n < 1) else n * factorial(n-1)
 print factorial(4)
@@ -64,7 +64,7 @@ class myTests(TestCaseGui):
         self.assertEqual(factorial(4),24,"Correct")
 
 myTests().main()
-			</textarea>
+  			</textarea>
 		</div>
 		<div class="col-md-4">
 			<h3>Grader <i>(In Progress)</i></h3>
@@ -80,6 +80,12 @@ class myTests(TestCaseGui):
 
 myTests().main()
       </pre>
+      <h4> Ideas for Next Iterations:</h4>
+      <ul>
+        <li>Create seperate text box for grader code</li>
+        <li>Eliminate grader code and subsitute it with a form</li>
+        <li>...</li>
+      </ul>
 		</div>
 	</div>
 </div>
