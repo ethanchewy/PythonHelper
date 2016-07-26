@@ -3,7 +3,7 @@ Edited by Ethan Chiu */
 
 body {
     padding-top: 60px;
-    background-color: #1E88E5;
+    background-color: #4183D7;
     color:white;
     font-family: 'Inconsolata', sans-serif;
 }
@@ -695,7 +695,7 @@ span.caption-text {
     font-size: large;
 }
 .alert-warning{
-    background-color:#1E88E5;
+    background-color:#4183D7;
     border:none;
 }
 .ac_caption, .ac_caption_text{
@@ -708,10 +708,20 @@ span.caption-text {
 }
 footer{
     color:white;
+    margin-right:0;
+    margin-left:0;
 }
 a{
     color:blue;
 }
 footer a{
     color:white;
+}
+.row{
+    margin-right:0;
+    margin-left:0;
+}
+.footer>.container{
+    background-color: #4183D7;
+    margin-left:1%;
 }

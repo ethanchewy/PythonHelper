@@ -30,7 +30,7 @@
 
 <meta property='og:image' content='static/image/PythonHelper.png'/>
 
-<!-- config -->
+<!-- Config For Rune-->
 <script type="text/javascript">
   eBookConfig = {};
   eBookConfig.useRunestoneServices = true;
@@ -48,14 +48,25 @@
         <p><i>In browser implementation of a python text editor with live syntax checking, visualizer, and compiler.</i></p>
         <p>Have Suggestions? Please fill out this 2 question survey: <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9kVGglSHIVJ-TuBvzTAcR5fNnKQzmJaZxYoiPWWPJiHdguQ/viewform" target="_blank">Survey</a></p>
     </div>
-<textarea id="code" data-component="activecode" id=ac_example1 data-lang="python"    data-timelimit=25000  data-codelens="false" data-audio=''     data-caption='Converting Temperature from Celsius to Farenheit'>
+    <div class="row" id="core">
+    	<div class="col-sm-8">
+    		<h3>Text Editor</h3>
+			<textarea id="code" data-component="activecode" id=ac_example1 data-lang="python"    data-timelimit=25000  data-codelens="false" data-audio=''     data-caption='Converting Temperature from Celsius to Farenheit'>
 celsius = float(input('Enter Temperature in Degrees Celsius: '))
 fahrenheit = (celsius * 1.8) + 32
 print('%0.1f degree Celsius is equal to %0.1f degree Fahrenheit' %(celsius,fahrenheit))
-</textarea>
+			</textarea>
+		</div>
+		<div class="col-md-4">
+			<h3>Grader <i>(In Progress)</i></h3>
+
+		</div>
+	</div>
 </div>
-<footer>
-    Uses <a href="http://www.skulpt.org/">Skulpt</a>, <a href="https://github.com/RunestoneInteractive/RunestoneComponents">Runestone Components</a>, <a href="http://codemirror.net/">Codemirror</a>, and <a href="http://getbootstrap.com/">Bootstrap</a>
+<footer class="footer">
+	<div class="container">
+    	Uses <a href="http://www.skulpt.org/">Skulpt</a>, <a href="https://github.com/RunestoneInteractive/RunestoneComponents">Runestone Components</a>, <a href="http://codemirror.net/">Codemirror</a>, and <a href="http://getbootstrap.com/">Bootstrap</a>
+    </div>
 </footer>
 </body> 
 
