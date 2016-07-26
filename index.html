@@ -34,7 +34,6 @@
 <script type="text/javascript">
   eBookConfig = {};
   eBookConfig.useRunestoneServices = true;
-  eBookConfig.python3 = true;
 </script>
 
 <title>Python Helper</title>
@@ -52,9 +51,9 @@
     	<div class="col-sm-8">
     		<h3>Text Editor</h3>
 			<textarea id="code" data-component="activecode" id=ac_example1 data-lang="python"    data-timelimit=25000  data-codelens="false" data-audio=''     data-caption='Converting Temperature from Celsius to Farenheit'>
-celsius = float(input('Enter Temperature in Degrees Celsius: '))
-fahrenheit = (celsius * 1.8) + 32
-print('%0.1f degree Celsius is equal to %0.1f degree Fahrenheit' %(celsius,fahrenheit))
+def factorial(n):
+  return 1 if (n < 1) else n * factorial(n-1)
+print factorial(4)
 			</textarea>
 		</div>
 		<div class="col-md-4">
