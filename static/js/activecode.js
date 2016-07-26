@@ -562,7 +562,7 @@ ActiveCode.prototype.toggleEditorVisibility = function () {
 ActiveCode.prototype.addErrorMessage = function (err) {
     //logRunEvent({'div_id': this.divid, 'code': this.prog, 'errinfo': err.toString()}); // Log the run event
     var errHead = $('<h3>').html('Error');
-    this.eContainer = this.outerDiv.appendChild(document.createElement('div'));
+    this.eContainer = document.getElementById('errors');
     this.eContainer.className = 'error alert alert-danger';
     this.eContainer.id = this.divid + '_errinfo';
     this.eContainer.appendChild(errHead[0]);
