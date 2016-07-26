@@ -54,6 +54,17 @@
 def factorial(n):
   return 1 if (n < 1) else n * factorial(n-1)
 print factorial(4)
+
+====
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+
+    def testOne(self):
+        self.assertEqual(factorial(4),24,"Double check your recursion")
+        self.assertAlmostEqual(factorial(4), "Try adding a base case")
+
+myTests().main()
 			</textarea>
 		</div>
 		<div class="col-md-4">
