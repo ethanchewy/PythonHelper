@@ -69,6 +69,17 @@ myTests().main()
 		<div class="col-md-4">
 			<h3>Grader <i>(In Progress)</i></h3>
       <div id="grader"></div>
+      <h4>How does it work?</h4>
+      <p>Example Grader:</p>
+      <pre>
+from unittest.gui import TestCaseGui
+
+class myTests(TestCaseGui):
+    def testOne(self):
+        self.assertEqual(factorial(4),24,"Correct")
+
+myTests().main()
+      </pre>
 		</div>
 	</div>
 </div>
