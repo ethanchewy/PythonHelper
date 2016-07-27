@@ -93,7 +93,10 @@ ActiveCode.prototype.createEditor = function (index) {
         mode: this.containerDiv.lang, indentUnit: 4,
         gutters: ["CodeMirror-lint-markers"],
         matchBrackets: true, autoMatchParens: true,
+        styleActiveLine: true,
+        highlightSelectionMatches: true,
         //lint:true,
+        //theme: 'zenburn',
         extraKeys: {"Tab": "indentMore", "Shift-Tab": "indentLess"}
     });
 

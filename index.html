@@ -10,8 +10,13 @@
 <script src="static/js/editor.js" type="text/javascript"></script> 
 <script src="static/js/activecode.js" type="text/javascript"></script>
 <script src="static/js/timed_activecode.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.22/webcomponents-lite.js"></script>
 <script src="codemirror/lib/codemirror.js" type="text/javascript"></script>
+<script src="codemirror/addon/active-line.js" type="text/javascript"></script>
+<script src="codemirror/addon/search.js" type="text/javascript"></script>
+<script src="codemirror/addon/match-highlighter.js" type="text/javascript"></script>
+<script src="codemirror/addon/matchesonscrollbar.js" type="text/javascript"></script>
+<script src="codemirror/addon/searchcursor.js" type="text/javascript"></script>
+<script src="codemirror/addon/dialog.js" type="text/javascript"></script>
 <script src="codemirror/lib/python.js" type="text/javascript"></script>
 <script src="static/bootstrap-3.0.0/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <script src="static/js/PythonHelper.js" type="text/javascript"></script>
@@ -23,6 +28,9 @@
 <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="codemirror/theme/zenburn.css">
+<link rel="stylesheet" href="codemirror/addon/dialog.css">
+<link rel="stylesheet" href="codemirror/addon/matchesonscrollbar.css">
 <link rel="stylesheet" href="static/css/activecode.css">
 <link rel="stylesheet" href="static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
 <link rel="stylesheet" href="static/bootstrap-3.0.0/css/bootstrap-switch.min.css" type="text/css" />
@@ -54,7 +62,7 @@
     <!-- Text Editor -->
     <div class="row" id="core">
       <div class="col-md-8">
-        <h3>Text Editor</h3>
+        <h3>Text Editor <a href="#features-content" class="btn btn-info" role="button">Instructions</a></h3>
         <p><i>Click on the Editor to Try it Out!</i></p>
         <textarea id="code" data-component="activecode" id=ac_example1 data-lang="python"    data-timelimit=25000  data-codelens="false" data-audio=''     data-caption='factorial'>
 def factorial(n):
@@ -101,21 +109,33 @@ myTests().main()
     <div class="col-md-8">
       <div id="errors"></div>
     </div>
-    <!-- Upcoming Features -->
+    <!-- Current & Upcoming Features -->
     <div class="col-md-4">
-      <h3>Upcoming Features:</h3>
+      <h3>Features:</h3>
       <input id="features" type="checkbox" name="my-checkbox" size="normal" data-on-color="success" data-on-color="info" data-on-text="Show"  data-off-text="Close" checked>
       <div id="features-content">
-        <ul>
-          <li>Live Syntax Checker</li>
-          <li>Dynamic Python Helper Integration</li>
-          <li>...</li>
-        </ul>
-        <h4>Have any ideas for features?</h4>
-        Please fill out this 2 question survey: <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9kVGglSHIVJ-TuBvzTAcR5fNnKQzmJaZxYoiPWWPJiHdguQ/viewform" target="_blank">Survey</a></p>
-
+      <h4>Current Features Manual:</h4>
+      <ul>
+        <li>Auto Line Highlight</li>
+        <li>Search Functionality</li>
+          <ul>
+            <li>Ctrl-F</li>
+          </ul>
+        <li>Grader</li>
+        <li>Error Log</li>
+      </ul>
+      <h4>Upcoming Features:</h4>     
+      <ul>
+        <li>Live Syntax Checker</li>
+        <li>Dynamic Editable Hint System</li>
+        <li>Dynamic Python Helper Integration</li>
+        <li>...</li>
+      </ul>
+      <h4>Have any ideas for features?</h4>
+      Please fill out this 2 question survey: <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9kVGglSHIVJ-TuBvzTAcR5fNnKQzmJaZxYoiPWWPJiHdguQ/viewform" target="_blank">Survey</a></p>
       </div>
     </div>
+    
   </div>
 </div>
 <footer class="footer">
