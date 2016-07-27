@@ -1,7 +1,7 @@
 
 <head> 
 <!-- Javascript -->
- <script type="text/javascript" src="static/js/runestonebase.js"></script>
+<script type="text/javascript" src="static/js/runestonebase.js"></script>
 <script type="text/javascript" src="static/js/jquery.js"></script>
 <script type="text/javascript" src="static/js/pytutor.js"></script>
 <script type="text/javascript" src="static/js/jquery-ui-1.10.3.custom.min.js"></script>
@@ -83,30 +83,28 @@ myTests().main()
     </div>
     <!-- Grader -->
     <div class="col-md-4" id="grader_container">
-      <h3>Grader <i>(In Progress) </i><input id="grader_check" type="checkbox" name="my-checkbox" size="normal" data-on-color="success" data-on-color="info" data-on-text="Show"  data-off-text="Close" checked>
-      <div id="grader-content"></h3>
-      
+      <h3>Grader <i>(In Progress) </i><input id="grader_check" type="checkbox" name="my-checkbox" size="normal" data-on-color="success" data-on-color="info" data-on-text="Show"  data-off-text="Close" checked></h3>
+      <div id="grader-content">
         <div id="grader"></div>
-          <h4>How does it work?</h4>
-          <div>
-            <p>Example Grader:</p>
-            <pre>
-from unittest.gui import TestCaseGui
+        <h4>How does it work?</h4>
+        
+          <p>Example Grader:</p>
+          <pre>
+  from unittest.gui import TestCaseGui
 
-class myTests(TestCaseGui):
-    def testOne(self):
-        self.assertEqual(factorial(4),24,"Correct")
+  class myTests(TestCaseGui):
+      def testOne(self):
+          self.assertEqual(factorial(4),24,"Correct")
 
-myTests().main()
-            </pre>
-            <h4> Ideas for Next Iterations:</h4>
-            <ul>
-              <li>Create seperate text box for grader code</li>
-              <li>Eliminate grader code and subsitute it with a form</li>
-              <li>...</li>
-            </ul>
-          </div>
-        </div>
+  myTests().main()
+          </pre>
+          <h4> Ideas for Next Iterations:</h4>
+          <ul>
+            <li>Create seperate text box for grader code</li>
+            <li>Eliminate grader code and subsitute it with a form</li>
+            <li>...</li>
+          </ul>
+      </div>
     </div>
     <!-- Errors -->
     <div class="col-md-8">
@@ -114,8 +112,8 @@ myTests().main()
     </div>
     <!-- Current & Upcoming Features -->
     <div class="col-md-4" id="features-container">
-      <h3>Features: <input id="features" type="checkbox" name="my-checkbox" size="normal" data-on-color="success" data-on-color="info" data-on-text="Show"  data-off-text="Close">
-      <div id="features-content"></h3>
+      <h3>Features <input id="features" type="checkbox" name="my-checkbox" size="normal" data-on-color="success" data-on-color="info" data-on-text="Show"  data-off-text="Close" checked></h3>
+      <div id="features-content">
       <h4>Current Features Manual:</h4>
       <ul>
         <li>Auto Line Highlight</li>
