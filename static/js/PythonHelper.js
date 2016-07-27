@@ -1,5 +1,6 @@
 $(document).ready(function () {
 	$("[name='my-checkbox']").bootstrapSwitch();
+	$("#features-content").hide();
     $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
 	  console.log(state); // true | false
 	  //Temporary code. Need to shorten
