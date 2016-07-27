@@ -86,7 +86,6 @@
         <textarea id="code" data-component="activecode" id=ac_example1 data-lang="python"    data-timelimit=25000  data-codelens="false" data-audio=''     data-caption='factorial'>
 def factorial(n):
   return 1 if (n < 1) else n * factorial(n-1)
-print factorial(4)
 
 ====
 from unittest.gui import TestCaseGui
@@ -108,13 +107,14 @@ myTests().main()
         
           <p>Example Grader:</p>
           <pre>
-  from unittest.gui import TestCaseGui
+from unittest.gui import TestCaseGui
 
-  class myTests(TestCaseGui):
-      def testOne(self):
-          self.assertEqual(factorial(4),24,"Correct")
+class myTests(TestCaseGui):
 
-  myTests().main()
+    def testOne(self):
+        self.assertEqual(factorial(4),24,"Correct")
+
+myTests().main()
           </pre>
           <h4> Ideas for Next Iterations:</h4>
           <ul>
