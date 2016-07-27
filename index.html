@@ -10,10 +10,13 @@
 <script src="static/js/editor.js" type="text/javascript"></script> 
 <script src="static/js/activecode.js" type="text/javascript"></script>
 <script src="static/js/timed_activecode.js" type="text/javascript"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.22/webcomponents-lite.js"></script>
 <script src="codemirror/lib/codemirror.js" type="text/javascript"></script>
 <script src="codemirror/lib/python.js" type="text/javascript"></script>
+<script src="static/bootstrap-3.0.0/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <script src="static/js/PythonHelper.js" type="text/javascript"></script>
+
+
 
 
 <!--Styling -->
@@ -21,7 +24,8 @@
 <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="codemirror/lib/codemirror.css">
 <link rel="stylesheet" href="static/css/activecode.css">
-<link rel="stylesheet" href="static/css/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="static/bootstrap-3.0.0/css/bootstrap-switch.min.css" type="text/css" />
 <link rel="stylesheet" href="static/css/pytutor.css" type="text/css" />
 <link rel="stylesheet" href="static/css/jquery-ui-1.10.3.custom.min.css" type="text/css" />
 <link rel="stylesheet" href="static/css/custom_bootstrap.css" type="text/css" />
@@ -49,10 +53,10 @@
     </div>
     <!-- Text Editor -->
     <div class="row" id="core">
-    	<div class="col-md-8">
-    		<h3>Text Editor</h3>
+      <div class="col-md-8">
+        <h3>Text Editor</h3>
         <p><i>Click on the Editor to Try it Out!</i></p>
-  			<textarea id="code" data-component="activecode" id=ac_example1 data-lang="python"    data-timelimit=25000  data-codelens="false" data-audio=''     data-caption='factorial'>
+        <textarea id="code" data-component="activecode" id=ac_example1 data-lang="python"    data-timelimit=25000  data-codelens="false" data-audio=''     data-caption='factorial'>
 def factorial(n):
   return 1 if (n < 1) else n * factorial(n-1)
 print factorial(4)
@@ -66,15 +70,17 @@ class myTests(TestCaseGui):
         self.assertEqual(factorial(4),24,"Correct")
 
 myTests().main()
-  			</textarea>
-		</div>
+        </textarea>
+    </div>
     <!-- Grader -->
-		<div class="col-md-4">
-			<h3>Grader <i>(In Progress)</i></h3>
+    <div class="col-md-4" id="grader_container">
+      <h3>Grader <i>(In Progress)</i></h3>
       <div id="grader"></div>
       <h4>How does it work?</h4>
-      <p>Example Grader:</p>
-      <pre>
+      <input id="grader_check" type="checkbox" name="my-checkbox" size="normal" data-on-color="success" data-on-color="info" data-on-text="Show"  data-off-text="Close" checked>
+      <div id="grader-content">
+        <p>Example Grader:</p>
+        <pre>
 from unittest.gui import TestCaseGui
 
 class myTests(TestCaseGui):
@@ -82,14 +88,15 @@ class myTests(TestCaseGui):
         self.assertEqual(factorial(4),24,"Correct")
 
 myTests().main()
-      </pre>
-      <h4> Ideas for Next Iterations:</h4>
-      <ul>
-        <li>Create seperate text box for grader code</li>
-        <li>Eliminate grader code and subsitute it with a form</li>
-        <li>...</li>
-      </ul>
-		</div>
+        </pre>
+        <h4> Ideas for Next Iterations:</h4>
+        <ul>
+          <li>Create seperate text box for grader code</li>
+          <li>Eliminate grader code and subsitute it with a form</li>
+          <li>...</li>
+        </ul>
+      </div>
+    </div>
     <!-- Errors -->
     <div class="col-md-8">
       <div id="errors"></div>
@@ -97,19 +104,23 @@ myTests().main()
     <!-- Upcoming Features -->
     <div class="col-md-4">
       <h3>Upcoming Features:</h3>
-      <ul>
-        <li>Live Syntax Checker</li>
-        <li>Dynamic Python Helper Integration</li>
-        <li>...</li>
-      </ul>
-      <h4>Have any ideas for features?</h4>
-      Please fill out this 2 question survey: <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9kVGglSHIVJ-TuBvzTAcR5fNnKQzmJaZxYoiPWWPJiHdguQ/viewform" target="_blank">Survey</a></p>
+      <input id="features" type="checkbox" name="my-checkbox" size="normal" data-on-color="success" data-on-color="info" data-on-text="Show"  data-off-text="Close" checked>
+      <div id="features-content">
+        <ul>
+          <li>Live Syntax Checker</li>
+          <li>Dynamic Python Helper Integration</li>
+          <li>...</li>
+        </ul>
+        <h4>Have any ideas for features?</h4>
+        Please fill out this 2 question survey: <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9kVGglSHIVJ-TuBvzTAcR5fNnKQzmJaZxYoiPWWPJiHdguQ/viewform" target="_blank">Survey</a></p>
+
+      </div>
     </div>
-	</div>
+  </div>
 </div>
 <footer class="footer">
-	<div class="container">
-    	Uses <a href="http://www.skulpt.org/">Skulpt</a>, <a href="https://github.com/RunestoneInteractive/RunestoneComponents">Runestone Components</a>, <a href="http://codemirror.net/">Codemirror</a>, and <a href="http://getbootstrap.com/">Bootstrap</a>
+  <div class="container">
+      Uses <a href="http://www.skulpt.org/">Skulpt</a>, <a href="https://github.com/RunestoneInteractive/RunestoneComponents">Runestone Components</a>, <a href="http://codemirror.net/">Codemirror</a>, and <a href="http://getbootstrap.com/">Bootstrap</a>
     </div>
 </footer>
 </body> 
