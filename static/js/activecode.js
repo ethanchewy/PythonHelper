@@ -1,6 +1,6 @@
 /**
  * Created by bmiller on 3/19/15.
- Edited by ethanchewy on 7/23/16.
+ Edited by ethanchewy on 7/23/16-.
  */
 
 var isMouseDown = false;
@@ -89,12 +89,18 @@ ActiveCode.prototype.createEditor = function (index) {
         this.containerDiv.appendChild(linkdiv);
     }
     this.containerDiv.appendChild(codeDiv);
+    CodeMirror.commands.autocomplete = function(cm) {
+        cm.showHint({hint: CodeMirror.hint.anyword});
+    }
     var editor = CodeMirror(codeDiv, {value: this.code, lineNumbers: true,
         mode: this.containerDiv.lang, indentUnit: 4,
         gutters: ["CodeMirror-lint-markers"],
         matchBrackets: true, autoMatchParens: true,
         styleActiveLine: true,
+        extraKeys: {"Ctrl-Space": "autocomplete"},
+        lineNumbers: true,
         highlightSelectionMatches: true,
+        hint:true,
         //lint:true,
         //theme: 'zenburn',
         extraKeys: {"Tab": "indentMore", "Shift-Tab": "indentLess"}

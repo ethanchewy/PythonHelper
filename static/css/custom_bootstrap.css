@@ -725,10 +725,14 @@ footer a{
     background-color: #4183D7;
     margin-left:1%;
 }
-.bootstrap-switch-container{
+.bootstrap-switch-container, .features-container{
     height:30px;
+    font-size:15px !important;
 }
 .bootstrap-switch{
     border:0;
+}
+#TryOut{
+    font-weight: 900 !important;
 }
 
