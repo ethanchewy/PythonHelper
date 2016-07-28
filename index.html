@@ -93,7 +93,8 @@ from unittest.gui import TestCaseGui
 class myTests(TestCaseGui):
 
     def testOne(self):
-        self.assertEqual(factorial(4),24,"Correct")
+        self.assertEqual(factorial(3),24,"Try checking base case")
+        self.assertEqual(factorial(0),0,"Try using recursion")
 
 myTests().main()
         </textarea>
