@@ -2,7 +2,7 @@
 In browser implementation of a python text editor with live syntax checking, visualizer, and compiler. Uses Skulpt, Python Tutor, Runestone Components and CodeMirror.
 ![alt tag](static/images/PythonHelper.png)
 
-#Current Features
+###Current Features
 <ul>
   <li>Editor
     <ul>
@@ -15,8 +15,17 @@ In browser implementation of a python text editor with live syntax checking, vis
   <li>Error System</li>
 </ul>
 
-#Future Features
+###Future Features
 <ul>
   <li>Live Syntax Checking</li>
   <li>...</li>
 </ul>
+
+###Acknowledgments
+For general advice and feedback about this project:
+- Eni Mustafaraj
+- Timothy Farrell
+- Dustin Oprea
+
+For design advice:
+- Addismiraph Abebe
