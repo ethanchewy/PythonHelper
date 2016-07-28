@@ -1,0 +1,64 @@
+<html>
+    <!-- Codemirror2 FILES are different than Codemirror1 -->
+    <head>
+        <link rel="stylesheet" href="codemirror2/lib/codemirror.css">
+        <script src="codemirror2/lib/codemirror.js"></script>
+        <script src="codemirror2/addon/edit/matchbrackets.js"></script>
+        <script src="codemirror2/mode/python/python.js"></script>
+        <script src="codemirror2/addon/selection/active-line.js"></script>
+        <link rel="stylesheet" href="codemirror2/addon/lint/lint.css">
+        <script src="codemirror2/addon/lint/lint.js"></script>
+        <script src="codemirror2/addon/lint/javascript-lint.js"></script>
+        <script src="codemirror/addon/cm-validator-remote.js"></script>
+        <style type="text/css">
+          .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
+          .CodeMirror-empty { outline: 1px solid #c22; }
+        </style>
+    </head>
+    <body>
+    <div><textarea id="code" name="code" placeholder="Code goes here...">
+def doesNothing:
+    pass
+
+a__ = 5
+    </textarea></div>
+    </body>
+    <script type="text/javascript">
+function check_syntax(code, result_cb)
+{
+    var error_list = [{
+            line_no: 1,
+            column_no_start: 14,
+            column_no_stop: 17,
+            fragment: "def doesNothing:\n",
+            message: "invalid syntax",
+            severity: "error"
+        }, {
+            line_no: 4,
+            column_no_start: 1,
+            column_no_stop: 3,
+            fragment: "a__ = 5\n",
+            message: "convention violation",
+            severity: "warning"
+        }]
+
+    result_cb(error_list);
+}
+
+var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    mode: { name: "python",
+            version: 2,
+            singleLineStringErrors: false },
+    lineNumbers: true,
+    indentUnit: 4,
+    tabMode: "shift",
+    gutters: ["CodeMirror-lint-markers"],
+    lintWith: {
+        "getAnnotations": CodeMirror.remoteValidator,
+        "async": true,
+        "check_cb": check_syntax
+    }
+});
+    </script>
+</html>
+
