@@ -17,6 +17,7 @@
 <script src="codemirror/addon/matchesonscrollbar.js" type="text/javascript"></script>
 <script src="codemirror/addon/searchcursor.js" type="text/javascript"></script>
 <script src="codemirror/addon/show-hint.js" type="text/javascript"></script>
+<script src="codemirror/addon/python-hint.js" type="text/javascript"></script>
 <script src="codemirror/addon/dialog.js" type="text/javascript"></script>
 <script src="codemirror/lib/python.js" type="text/javascript"></script>
 <script src="codemirror/addon/anyword-hint.js" type="text/javascript"></script>
@@ -93,8 +94,8 @@ from unittest.gui import TestCaseGui
 class myTests(TestCaseGui):
 
     def testOne(self):
-        self.assertEqual(factorial(3),24,"Try checking base case")
-        self.assertEqual(factorial(0),0,"Try using recursion")
+        self.assertEqual(factorial(3),6,"Try checking base case")
+        self.assertEqual(factorial(0),1,"Try using recursion")
 
 myTests().main()
         </textarea>

@@ -89,13 +89,10 @@ ActiveCode.prototype.createEditor = function (index) {
         this.containerDiv.appendChild(linkdiv);
     }
     this.containerDiv.appendChild(codeDiv);
-    CodeMirror.commands.autocomplete = function(cm) {
-        cm.showHint({hint: CodeMirror.hint.anyword});
-    }
+    
     var editor = CodeMirror(codeDiv, {value: this.code, lineNumbers: true,
         mode: this.containerDiv.lang, indentUnit: 4,
         gutters: ["CodeMirror-lint-markers"],
-        matchBrackets: true, autoMatchParens: true,
         styleActiveLine: true,
         extraKeys: {"Ctrl-Space": "autocomplete"},
         lineNumbers: true,
@@ -105,6 +102,9 @@ ActiveCode.prototype.createEditor = function (index) {
         //theme: 'zenburn',
         extraKeys: {"Tab": "indentMore", "Shift-Tab": "indentLess"}
     });
+    CodeMirror.commands.autocomplete = function(cm) {
+        cm.showHint(cm, CodeMirror.hint.python);
+    }
 
     // Make the editor resizable
     $(editor.getWrapperElement()).resizable({
