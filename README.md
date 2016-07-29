@@ -3,19 +3,15 @@ Completely in browser implementation of a python text editor with a live syntax 
 <br></br>
 Uses Skulpt, Python Tutor, Runestone Components and CodeMirror.
 <br></br>
-<img src="PythonHelper.gif></img>
-<br></br>
+![alt tag](PythonHelper.gif )
+
 ###Usage
-<ol>
-  <li>Fetch from repo:
+1) Fetch from repo:
   ```
   git clone https://github.com/ethanchewy/PythonHelper.git
   ```
-  </li>
-  <li>Just open up "index.html" in you local browser:
-  <img src="http://i.imgur.com/Vgnmvjn.png"></img>
-  </li>
-</ol>
+2) Just open up "index.html" in you local browser:
+  ![alt tag](http://i.imgur.com/Vgnmvjn.png)
 ###Current Features
 <ul>
   <li>Editor
@@ -28,14 +24,14 @@ Uses Skulpt, Python Tutor, Runestone Components and CodeMirror.
   <li>Grader</li>
   <li>Error System</li>
 </ul>
-
+###Customize
+Styling the 
 ###Future Features
 <ul>
   <li>Live Syntax Checking</li>
   <li>...</li>
 </ul>
 
-###Customize
 
 
 ###Acknowledgments
