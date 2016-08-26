@@ -1,64 +1,87 @@
-<html>
-    <!-- Codemirror2 FILES are different than Codemirror1 -->
-    <head>
-        <link rel="stylesheet" href="codemirror2/lib/codemirror.css">
-        <script src="codemirror2/lib/codemirror.js"></script>
-        <script src="codemirror2/addon/edit/matchbrackets.js"></script>
-        <script src="codemirror2/mode/python/python.js"></script>
-        <script src="codemirror2/addon/selection/active-line.js"></script>
-        <link rel="stylesheet" href="codemirror2/addon/lint/lint.css">
-        <script src="codemirror2/addon/lint/lint.js"></script>
-        <script src="codemirror2/addon/lint/javascript-lint.js"></script>
-        <script src="codemirror/addon/cm-validator-remote.js"></script>
-        <style type="text/css">
-          .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
-          .CodeMirror-empty { outline: 1px solid #c22; }
-        </style>
-    </head>
-    <body>
-    <div><textarea id="code" name="code" placeholder="Code goes here...">
-def doesNothing:
-    pass
+<!doctype html>
 
-a__ = 5
-    </textarea></div>
-    </body>
-    <script type="text/javascript">
-function check_syntax(code, result_cb)
-{
-    var error_list = [{
-            line_no: 1,
-            column_no_start: 14,
-            column_no_stop: 17,
-            fragment: "def doesNothing:\n",
-            message: "invalid syntax",
-            severity: "error"
-        }, {
-            line_no: 4,
-            column_no_start: 1,
-            column_no_stop: 3,
-            fragment: "a__ = 5\n",
-            message: "convention violation",
-            severity: "warning"
-        }]
+<title>CodeMirror: Linter Demo</title>
 
-    result_cb(error_list);
-}
+<meta charset="utf-8"/>
 
-var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-    mode: { name: "python",
-            version: 2,
-            singleLineStringErrors: false },
-    lineNumbers: true,
-    indentUnit: 4,
-    tabMode: "shift",
-    gutters: ["CodeMirror-lint-markers"],
-    lintWith: {
-        "getAnnotations": CodeMirror.remoteValidator,
-        "async": true,
-        "check_cb": check_syntax
+<link rel="stylesheet" href="codemirror_testing/lib/codemirror.css">
+<link rel="stylesheet" href="codemirror_testing/lib/lint.css">
+<script src="codemirror_testing/lib/codemirror.js"></script>
+<script src="codemirror_testing/mode/javascript.js"></script>
+<script src="codemirror_testing/mode/css.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jshint/r07/jshint.js"></script>
+<script src="https://rawgithub.com/zaach/jsonlint/79b553fb65c192add9066da64043458981b3972b/lib/jsonlint.js"></script>
+<script src="codemirror_testing/lib/lint.js"></script>
+<script src="codemirror_testing/lib/javascript-lint.js"></script>
+<script src="codemirror_testing/lib/json-lint.js"></script>
+<style type="text/css">
+      .CodeMirror {border: 1px solid black;}
+    </style>
+<h2>Linter Demo (Currently trying to make this work for python)</h2>
+
+
+    <p><textarea id="code-js">var widgets = []
+function updateHints() {
+  editor.operation(function(){
+    for (var i = 0; i < widgets.length; ++i)
+      editor.removeLineWidget(widgets[i]);
+    widgets.length = 0;
+
+    JSHINT(editor.getValue());
+    for (var i = 0; i < JSHINT.errors.length; ++i) {
+      var err = JSHINT.errors[i];
+      if (!err) continue;
+      var msg = document.createElement("div");
+      var icon = msg.appendChild(document.createElement("span"));
+      icon.innerHTML = "!!";
+      icon.className = "lint-error-icon";
+      msg.appendChild(document.createTextNode(err.reason));
+      msg.className = "lint-error";
+      widgets.push(editor.addLineWidget(err.line - 1, msg, {coverGutter: false, noHScroll: true}));
     }
-});
-    </script>
-</html>
+  });
+  var info = editor.getScrollInfo();
+  var after = editor.charCoords({line: editor.getCursor().line + 1, ch: 0}, "local").top;
+  if (info.top + info.clientHeight < after)
+    editor.scrollTo(null, after - info.clientHeight + 3);
+}
+</textarea></p>
 
+    <p><textarea id="code-json">[
+ {
+  _id: "post 1",
+  "author": "Bob",
+  "content": "...",
+  "page_views": 5
+ },
+ {
+  "_id": "post 2",
+  "author": "Bob",
+  "content": "...",
+  "page_views": 9
+ },
+ {
+  "_id": "post 3",
+  "author": "Bob",
+  "content": "...",
+  "page_views": 8
+ }
+]
+</textarea></p>
+
+<script>
+  var editor = CodeMirror.fromTextArea(document.getElementById("code-js"), {
+    lineNumbers: true,
+    mode: "javascript",
+    gutters: ["CodeMirror-lint-markers"],
+    lint: true
+  });
+
+  var editor_json = CodeMirror.fromTextArea(document.getElementById("code-json"), {
+    lineNumbers: true,
+    mode: "application/json",
+    gutters: ["CodeMirror-lint-markers"],
+    lint: true
+  });
+  
+</script>
