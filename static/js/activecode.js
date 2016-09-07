@@ -1,6 +1,6 @@
 /**
  * Created by bmiller on 3/19/15.
- Edited by ethanchewy on 7/23/16-.
+ * Edited by ethanchewy on 7/23/16->.
  */
 
 var isMouseDown = false;
@@ -33,6 +33,8 @@ ActiveCode.prototype.init = function(opts) {
     this.timelimit = $(orig).data('timelimit');
     this.includes = $(orig).data('include');
     this.hidecode = $(orig).data('hidecode');
+    this.sid = opts.sid;
+    this.graderactive = opts.graderactive;
     this.runButton = null;
     this.saveButton = null;
     this.loadButton = null;
@@ -43,9 +45,12 @@ ActiveCode.prototype.init = function(opts) {
     this.codelens = null;
     this.controlDiv = null;
     this.historyScrubber = null;
-    this.history = [this.code]
     this.timestamps = ["Original"]
     this.autorun = $(orig).data('autorun');
+
+    if(this.graderactive) {
+        this.hidecode = false;
+    }
 
     if(this.includes !== undefined) {
         this.includes = this.includes.split(/\s+/);
@@ -57,6 +62,7 @@ ActiveCode.prototype.init = function(opts) {
         this.code = this.code.substring(0,suffStart);
     }
 
+    this.history = [this.code]
     this.createEditor();
     this.createOutput();
     this.createControls();
@@ -89,22 +95,11 @@ ActiveCode.prototype.createEditor = function (index) {
         this.containerDiv.appendChild(linkdiv);
     }
     this.containerDiv.appendChild(codeDiv);
-    
     var editor = CodeMirror(codeDiv, {value: this.code, lineNumbers: true,
         mode: this.containerDiv.lang, indentUnit: 4,
-        gutters: ["CodeMirror-lint-markers"],
-        styleActiveLine: true,
-        extraKeys: {"Ctrl-Space": "autocomplete"},
-        lineNumbers: true,
-        highlightSelectionMatches: true,
-        hint:true,
-        //lint:true,
-        //theme: 'zenburn',
+        matchBrackets: true, autoMatchParens: true,
         extraKeys: {"Tab": "indentMore", "Shift-Tab": "indentLess"}
     });
-    CodeMirror.commands.autocomplete = function(cm) {
-        cm.showHint(cm, CodeMirror.hint.python);
-    }
 
     // Make the editor resizable
     $(editor.getWrapperElement()).resizable({
@@ -117,8 +112,8 @@ ActiveCode.prototype.createEditor = function (index) {
     // give the user a visual cue that they have changed but not saved
     editor.on('change', (function () {
         if (editor.acEditEvent == false || editor.acEditEvent === undefined) {
-            $(editor.getWrapperElement()).css('border', '2px solid #f1c40f');
-            $(editor.getWrapperElement()).css('box-shadow', '1px 1px 4px 1px #f1c40f');
+            $(editor.getWrapperElement()).css('border-top', '2px solid #b43232');
+            $(editor.getWrapperElement()).css('border-bottom', '2px solid #b43232');
             this.logBookEvent({'event': 'activecode', 'act': 'edit', 'div_id': this.divid});
     }
         editor.acEditEvent = true;
@@ -149,10 +144,13 @@ ActiveCode.prototype.createControls = function () {
         ctrlDiv.appendChild(butt);
         this.histButton = butt;
         $(butt).click(this.addHistoryScrubber.bind(this));
+        if (this.graderactive) {
+            this.addHistoryScrubber(true);
+        }
     }
 
 
-    if ($(this.origElem).data('gradebutton')) {
+    if ($(this.origElem).data('gradebutton') && ! this.graderactive) {
         butt = document.createElement("button");
         $(butt).addClass("ac_opt btn btn-default");
         $(butt).text("Show Feedback");
@@ -179,7 +177,7 @@ ActiveCode.prototype.createControls = function () {
     }
 
     // CodeLens
-    if ($(this.origElem).data("codelens")) {
+    if ($(this.origElem).data("codelens") && ! this.graderactive) {
         butt = document.createElement("button");
         $(butt).addClass("ac_opt btn btn-default");
         $(butt).text("Show CodeLens");
@@ -211,7 +209,7 @@ ActiveCode.prototype.createControls = function () {
     }
 
 
-    $(this.outerDiv).append(ctrlDiv);
+    $(this.outerDiv).prepend(ctrlDiv);
     this.controlDiv = ctrlDiv;
 
 };
@@ -224,6 +222,8 @@ ActiveCode.prototype.createControls = function () {
 ActiveCode.prototype.addHistoryScrubber = function (pos_last) {
 
     var data = {acid: this.divid};
+    var deferred = jQuery.Deferred();
+
     if (this.sid !== undefined) {
         data['sid'] = this.sid;
     }
@@ -272,7 +272,9 @@ ActiveCode.prototype.addHistoryScrubber = function (pos_last) {
             this.histButton = null;
             this.historyScrubber = scrubber;
             $(scrubberDiv).insertAfter(this.runButton)
+            deferred.resolve();
         }.bind(this));
+    return deferred;
 }
 
 
@@ -284,6 +286,7 @@ ActiveCode.prototype.createOutput = function () {
     $(outDiv).addClass("ac_output col-md-5");
     this.outDiv = outDiv;
     this.output = document.createElement('pre');
+    this.output.id = this.divid+'_stdout';
     $(this.output).css("visibility","hidden");
 
     this.graphics = document.createElement('div');
@@ -572,7 +575,7 @@ ActiveCode.prototype.toggleEditorVisibility = function () {
 ActiveCode.prototype.addErrorMessage = function (err) {
     //logRunEvent({'div_id': this.divid, 'code': this.prog, 'errinfo': err.toString()}); // Log the run event
     var errHead = $('<h3>').html('Error');
-    this.eContainer = document.getElementById('errors');
+    this.eContainer = this.outerDiv.appendChild(document.createElement('div'));
     this.eContainer.className = 'error alert alert-danger';
     this.eContainer.id = this.divid + '_errinfo';
     this.eContainer.appendChild(errHead[0]);
@@ -584,16 +587,12 @@ ActiveCode.prototype.addErrorMessage = function (err) {
     $(this.eContainer).append('<h3>Description</h3>');
     var errDesc = this.eContainer.appendChild(document.createElement('p'));
     errDesc.innerHTML = errorText[errName];
-
     $(this.eContainer).append('<h3>To Fix</h3>');
     var errFix = this.eContainer.appendChild(document.createElement('p'));
     errFix.innerHTML = errorText[errName + 'Fix'];
-
-    $(this.eContainer).append('<h3>More Resources</h3>');
-    var errRes = this.eContainer.appendChild(document.createElement('div'));
+    $(this.eContainer).append('<h3>More Resources</h3>');       
+    var errRes = this.eContainer.appendChild(document.createElement('div'));        
     errRes.innerHTML = "<a href=" + errorText[errName + "Resource"] + '>' + errorText[errName + "Resource"] +'</a>';
-
-
     var moreInfo = '../ErrorHelp/' + errName.toLowerCase() + '.html';
     //console.log("Runtime Error: " + err.toString());
 };
@@ -654,6 +653,9 @@ errorText.IndentationErrorFix = "Check your if, def, for, and while statements t
 errorText.IndentationErrorResource = "https://docs.python.org/2/library/exceptions.html#exceptions.IndentationError";
 errorText.NotImplementedError = "This error occurs when you try to use a builtin function of Python that has not been implemented in this in-browser version of Python.";
 errorText.NotImplementedErrorFix = "For now the only way to fix this is to not use the function.  There may be workarounds.  If you really need this builtin function then file a bug report and tell us how you are trying to use the function.";
+
+
+
 
 ActiveCode.prototype.setTimeLimit = function (timer) {
     var timelimit = this.timelimit;
@@ -738,7 +740,7 @@ ActiveCode.prototype.buildProg = function() {
 
 ActiveCode.prototype.runProg = function() {
         var prog = this.buildProg();
-        var saveCode;
+        var saveCode = true;
 
         $(this.output).text('');
 
@@ -746,7 +748,8 @@ ActiveCode.prototype.runProg = function() {
         Sk.configure({output : this.outputfun.bind(this),
               read   : this.builtinRead,
               python3: this.python3,
-              imageProxy : 'http://image.runestone.academy:8080/320x'
+              imageProxy : 'http://image.runestone.academy:8080/320x',
+              inputfunTakesPrompt: true,
         });
         Sk.divid = this.divid;
         this.setTimeLimit();
@@ -755,22 +758,41 @@ ActiveCode.prototype.runProg = function() {
         $(this.runButton).attr('disabled', 'disabled');
         $(this.codeDiv).switchClass("col-md-12","col-md-7",{duration:500,queue:false});
         $(this.outDiv).show({duration:700,queue:false});
+
+        if (this.historyScrubber === null && !this.autorun) {
+            dfd = this.addHistoryScrubber();
+        } else {
+            dfd = jQuery.Deferred();
+            dfd.resolve();
+        }
+
+        hresolver = jQuery.Deferred();
+        dfd.done((function() {
+                if (this.historyScrubber && (this.history[$(this.historyScrubber).slider("value")] != this.editor.getValue())) {
+                    saveCode = "True";
+                    this.history.push(this.editor.getValue());
+                    this.timestamps.push((new Date()).toLocaleString());
+                    $(this.historyScrubber).slider("option", "max", this.history.length - 1)
+                    $(this.historyScrubber).slider("option", "value", this.history.length - 1)
+                } else {
+                    saveCode = "False";
+                }
+
+                if (this.historyScrubber == null) {
+                    saveCode = "False";
+                }
+                hresolver.resolve();
+            }).bind(this));
+
+
         var myPromise = Sk.misceval.asyncToPromise(function() {
 
             return Sk.importMainWithBody("<stdin>", false, prog, true);
         });
 
-        if (this.historyScrubber === null && !this.autorun) {
-            this.addHistoryScrubber();
-        }
-
-        if (this.historyScrubber === null || (this.history[$(this.historyScrubber).slider("value")] == this.editor.getValue())) {
-            saveCode = "False"
-        } else {
-            saveCode = "True"
-        }
-
-        myPromise.then((function(mod) { // success
+        // Make sure that the history scrubber is fully initialized AND the code has been run
+        // before we start logging stuff.
+        Promise.all([myPromise,hresolver]).then((function(mod) { // success
             $(this.runButton).removeAttr('disabled');
             this.logRunEvent({'div_id': this.divid, 'code': this.editor.getValue(), 'errinfo': 'success', 'to_save':saveCode, 'prefix': this.pretext, 'suffix':this.suffix}); // Log the run event
         }).bind(this),
@@ -780,13 +802,6 @@ ActiveCode.prototype.runProg = function() {
             this.addErrorMessage(err)
                 }).bind(this));
 
-
-        if (this.historyScrubber && (this.history[$(this.historyScrubber).slider("value")] != this.editor.getValue())) {
-            this.history.push(this.editor.getValue());
-            this.timestamps.push((new Date()).toLocaleString());
-            $(this.historyScrubber).slider("option", "max", this.history.length - 1)
-            $(this.historyScrubber).slider("option", "value", this.history.length - 1)
-        }
 
         if (typeof(allVisualizers) != "undefined") {
             $.each(allVisualizers, function (i, e) {
@@ -1624,28 +1639,32 @@ ACFactory.addActiveCodeToDiv = function(outerdivid, acdivid, sid, initialcode, l
     $(acdiv).empty();
     thepre = document.createElement("textarea");
     thepre['data-component'] = "activecode";
-    thepre.id = acdiv;
+    thepre.id = outerdivid;
     $(thepre).data('lang', language);
     $(acdiv).append(thepre);
     var opts = {'orig' : thepre, 'useRunestoneServices': true };
-    addopts = {}
+    addopts = {'sid': sid, 'graderactive':true};
     if(language === 'htmlmixed') {
-        var addopts = {'vertical': true};
+        addopts['vertical'] = true;
     }
     newac = ACFactory.createActiveCode(thepre,language,addopts);
     savediv = newac.divid;
-    newac.divid = outerdivid;
-    newac.sid = sid;
-    if (! initialcode ) {
-        newac.loadEditor();
-    } else {
-        newac.editor.setValue(initialcode);
-        setTimeout(function() {
-                newac.editor.refresh();
-            },500);
-    }
+    //newac.divid = outerdivid;
+    //newac.sid = sid;
+    // if (! initialcode ) {
+    //     newac.loadEditor();
+    // } else {
+    //     newac.editor.setValue(initialcode);
+    //     setTimeout(function() {
+    //             newac.editor.refresh();
+    //         },500);
+    // }
     newac.divid = savediv;
     newac.editor.setSize(500,300);
+    setTimeout(function() {
+            newac.editor.refresh();
+        },500);
+
 };
 
 ACFactory.createScratchActivecode = function() {
@@ -1709,7 +1728,7 @@ ACFactory.toggleScratchActivecode = function () {
 $(document).ready(function() {
     ACFactory.createScratchActivecode();
     $('[data-component=activecode]').each( function(index ) {
-        if ($(this.parentNode).data("component") !== "timedAssessment") {   // If this element exists within a timed component, don't render it here
+        if ($(this.parentNode).data("component") !== "timedAssessment" && $(this.parentNode.parentNode).data("component") !== "timedAssessment") {   // If this element exists within a timed component, don't render it here
             edList[this.id] = ACFactory.createActiveCode(this, $(this).data('lang'));
         }
     });
