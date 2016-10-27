@@ -1,5 +1,5 @@
 # PythonHelper
-Completely in browser implementation of a python text editor with a live syntax checker, visualizer, and compiler! 
+Completely in browser implementation of a python text editor with a visualizer and compiler! I am currently working on another project where one can just lint python online.
 <br></br>
 Uses Skulpt, Python Tutor, Runestone Components and CodeMirror.
 <br></br>
